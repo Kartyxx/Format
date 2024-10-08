@@ -1,18 +1,28 @@
 <?php 
 include 'include/header.php';
 include 'include/connexionbdd.php';
+include 'classe/Utilisateur.php';
 session_start();
 
-$id=$_POST['id'];
-$mdp=$_POST['mdp'];
+$response ="";
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 
-$utilisateur = new Utilisateur($connexion);
-$response= $utilisateur->seConnecter($id, $mdp);
+
+    $email=$_POST['email'];
+    $mdp=$_POST['mdp'];
+    $utilisateur = new Utilisateur($connexion);
+    $response= $utilisateur->seConnecter($email, $mdp);
+    echo $response;
+}
+
 
 if ($response!=null) {
     header("Location: index.php");
     exit();}
+
+
 else{
 
     echo "conenxion impossible";
@@ -23,15 +33,15 @@ else{
 ?>
 
 <form action="connexion.php" method="post" class="">
-        <input type="texte" name="id" placeholder="Votre id" class="" required>
-        <input type="password" name="mdp" placeholder="Entrez un pseudo" class="" required>
-        <button id="" type="submit" class="">Se connecter</button>
-    </form>
+    <input type="email" name="email" placeholder="Votre id" class="" required>
+    <input type="password" name="mdp" placeholder="Entrez un pseudo" class="" required>
+    <button id="" type="submit" class="">Se connecter</button>
+</form>
 
 
 
 
-    <a href="inscription.php" class="text-white">Inscription</a>
+    <a href="inscription.php" class="">Inscription</a>
 
 
     <?php 

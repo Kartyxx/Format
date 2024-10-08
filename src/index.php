@@ -1,6 +1,6 @@
 <?php 
 include 'include/header.php';
-echo "index";
+session_start();
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: connexion.php");
@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 
-
+echo "index".$_SESSION['user_id'];
 
 ?>
 
