@@ -40,7 +40,7 @@ class Utilisateur
     public function seConnecter($id_utilisateur, $mot_de_passe)
     {
 
-        $reqSQL = "SELECT * FROM utilisateur WHERE email = ?";
+        $reqSQL = "SELECT * FROM utilisateur WHERE id = ?";
         $stmt = $this->pdo->prepare($reqSQL);
         $stmt->execute([$id_utilisateur]);
         $user = $stmt->fetch();

@@ -8,7 +8,7 @@
 
     <title>Format</title>
 </head>
-<body class="bg-zinc-900">
+<body class="bg-white-900">
 <nav class="bg-stone-600	 shadow ">
     <div class="container mx-auto p-4 flex justify-between">
 

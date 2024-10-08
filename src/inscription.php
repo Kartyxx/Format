@@ -47,15 +47,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 
-
-
-
-?>
-
 <form action="inscription.php" method="post">
     <h2>Employés</h2>
     <input type="email" name="email" placeholder="Email" required>
-    <input type="password" name="mdp" placeholder="Entrez un pseudo" required>
+    <input type="password" name="mdp" placeholder="Entrez un mot de passe" required>
 
     <input type="radio" id="1" name="status" value="bénévoles">
     <label for="1">Bénévoles</label><br>
@@ -80,14 +75,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <label for="ville">Ville :</label>
     <input type="text" id="ville" name="ville" placeholder="Votre ville" required>
 
+    
     <label for="idEntrerise">Id entreprise :</label>
     <input type="text" id="idEntrerise" name="idEntrerise" placeholder="id de votre entreprise" required>
 
     <h2>Entreprise</h2>
     <label for="NomEntreprise">Nom Entreprise :</label>
-    <input type="text" id="NomEntreprise" name="NomEntreprise" placeholder="Nom Entreprise" required>
+    <input type="text" id="NomEntreprise" name="NomEntreprise" placeholder="Nom Entreprise" >
 
-    <input type="email" name="emailEntreprise" placeholder="Email de l'entreprise" required>
+    <input type="email" name="emailEntreprise" placeholder="Email de l'entreprise" >
 
     <label for="tel">Téléphone :</label>
     <input type="text" id="tel" name="tel" placeholder="Téléphone">
@@ -96,10 +92,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <input type="text" id="fax" name="fax" placeholder="Fax de l'entreprise"> 
 
     <label for="nomPrenomPdg">Nom et Prénom du PDG :</label>
-    <input type="text" id="nomPrenomPdg" name="nomPrenomPdg" placeholder="Nom et Prénom du PDG" required>
+    <input type="text" id="nomPrenomPdg" name="nomPrenomPdg" placeholder="Nom et Prénom du PDG" >
 
     <label for="NumIcom">Numéro Icom :</label>
-    <input type="text" id="NumIcom" name="NumIcom" placeholder="Numéro Icom" required> 
+    <input type="text" id="NumIcom" name="NumIcom" placeholder="Numéro Icom" > 
 
     <button type="submit">Soumettre</button>
 </form>
