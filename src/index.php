@@ -13,38 +13,6 @@ echo "index".$_SESSION['user_id'];
 ?>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php 
 include 'include/footer.php';
 ?>
