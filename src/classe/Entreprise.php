@@ -34,22 +34,10 @@ class Entreprise
         $this->Icom = $Icom;
     }
 
-    public function seConnecter($email, $mot_de_passe)
+    public function creerEntreprise($nomEntr, $courriel, $tel, $fax, $nomPrenomPdg, $Icom)
     {
-
-        
-
-        $reqSQL = "SELECT * FROM utilisateur WHERE email = ?";
-        $stmt = $this->pdo->prepare($reqSQL);
-        $stmt->execute([$email]);
-        $user = $stmt->fetch();
-
-        if ($user && password_verify($mot_de_passe, $user['mot_de_passe'])) {
-            $_SESSION['user_id']=$user['id_utilisateur'];
-            return $user;
-        } else {
-            return null;
-        }
+    echo 
+    
     }
 
     
