@@ -26,6 +26,9 @@ SET time_zone = "+00:00";
 --
 -- Structure de la table `entreprise`
 --
+DROP Database IF EXISTS `format`;
+CREATE Database IF NOT EXISTS `format` (
+
 
 DROP TABLE IF EXISTS `entreprise`;
 CREATE TABLE IF NOT EXISTS `entreprise` (
