@@ -25,7 +25,7 @@ if ($response!=null) {
 
 else{
 
-    echo "conenxion impossible";
+    echo "connexion impossible";
 }
 
 
@@ -34,7 +34,7 @@ else{
 
 <form action="connexion.php" method="post" class="">
     <input type="email" name="email" placeholder="Votre id" class="" required>
-    <input type="password" name="mdp" placeholder="Entrez un pseudo" class="" required>
+    <input type="password" name="mdp" placeholder="Entrez un mdp" class="" required>
     <button id="" type="submit" class="">Se connecter</button>
 </form>
 

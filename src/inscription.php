@@ -99,4 +99,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <input type="text" id="NumIcom" name="NumIcom" placeholder="Numéro Icom" > 
 
     <button type="submit">Soumettre</button>
+
+
+    <br><br>
+    <a href="connexion.php" class="">connexion</a>
+
 </form>

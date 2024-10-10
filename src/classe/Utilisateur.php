@@ -38,12 +38,13 @@ class Utilisateur
 
     public function seConnecter($email, $mot_de_passe)
     {
+
+        
+
         $reqSQL = "SELECT * FROM utilisateur WHERE email = ?";
         $stmt = $this->pdo->prepare($reqSQL);
         $stmt->execute([$email]);
         $user = $stmt->fetch();
-
-        //echo $mot_de_passe."      ".$user['mot_de_passe'];
 
         if ($user && password_verify($mot_de_passe, $user['mot_de_passe'])) {
             $_SESSION['user_id']=$user['id_utilisateur'];
@@ -55,6 +56,7 @@ class Utilisateur
 
     public function sInscrire($prenom, $nom, $status, $email, $mdp, $adresse, $code_postal, $ville, $fonction, $idEntrerise){
 
+        $mdp = password_hash($mdp, PASSWORD_DEFAULT);
         //$query = "INSERT INTO utilisateur (prenom, nom, status, email, mot_de_passe, localisation, codeP, ville,fonction, id_entreprise) VALUES ('$prenom', '$nom', '$status', '$email', '$mdp', '$adresse', '$code_postal', '$ville', '$fonction','$idEntrerise')";
         $stmt = $this->pdo->prepare("INSERT INTO utilisateur (prenom, nom, status, email, mot_de_passe, localisation, codeP, ville, fonction, id_entreprise) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->execute([$prenom, $nom, $status, $email, $mdp, $adresse, $code_postal, $ville, $fonction, $idEntrerise]);    
