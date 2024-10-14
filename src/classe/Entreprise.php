@@ -34,11 +34,11 @@ class Entreprise
         $this->Icom = $Icom;
     }
 
-    public function creerEntreprise($nomEntr, $courriel, $tel, $fax, $nomPrenomPdg, $Icom)
+    /*public function creerEntreprise($nomEntr, $courriel, $tel, $fax, $nomPrenomPdg, $Icom)
     {
     echo 
     
-    }
+    }*/
 
     
 
