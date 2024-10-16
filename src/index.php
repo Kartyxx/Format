@@ -45,7 +45,7 @@ $_SESSION['status']=$status;
 
 </div>
 <?php 
-if ($status="bénévoles"){
+if ($status=="bénévoles"){
     ?>
     
     <a classe="" href="creerFormation.php">
