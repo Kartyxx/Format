@@ -35,10 +35,10 @@ else{
 
 
 <div>
-<form action="connexion.php" method="post" class="grid grid-cols-3 gap-4 place-items-center h-56">
-    <input type="email" name="email" placeholder="Votre id" class="" required>
-    <input type="password" name="mdp" placeholder="Entrez un mdp" class="" required>
-    <button id="" type="submit" class="">Se connecter</button>
+<form action="connexion.php" method="post" class="space-y-4 font-[sans-serif] max-w-md mx-auto">
+    <input type="email" name="email" placeholder="Votre id" class="px-4 py-3 bg-gray-100 w-full text-sm outline-none border-b-2 border-blue-500 rounded" required>
+    <input type="password" name="mdp" placeholder="Entrez un mdp" class="px-4 py-3 bg-gray-100 w-full text-sm outline-none border-b-2 border-transparent focus:border-blue-500 rounded" required>
+    <button id="" type="submit" class="!mt-8 w-full px-4 py-2.5 mx-auto block text-sm bg-blue-500 text-white rounded hover:bg-blue-600">Se connecter</button>
 </form>
 </div>
 
