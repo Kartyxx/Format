@@ -28,6 +28,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $datelimite = $_POST['Datelimite'];
     
     $imageFormation = $_POST['imageFormation'];
+    $imageFormation = base64_encode($imageFormation);
+
+
 
 
     $formations = new Formations($connexion);

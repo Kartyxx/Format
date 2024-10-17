@@ -32,12 +32,15 @@ else{
 
 ?>
 
-<form action="connexion.php" method="post" class="">
+
+
+<div>
+<form action="connexion.php" method="post" class="grid grid-cols-3 gap-4 place-items-center h-56">
     <input type="email" name="email" placeholder="Votre id" class="" required>
     <input type="password" name="mdp" placeholder="Entrez un mdp" class="" required>
     <button id="" type="submit" class="">Se connecter</button>
 </form>
-
+</div>
 
 
 
