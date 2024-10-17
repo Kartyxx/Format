@@ -140,7 +140,21 @@ CREATE TABLE IF NOT EXISTS `intervenants` (
   PRIMARY KEY (`id_intervenants`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+DROP TABLE IF EXISTS `intervenants`;
+CREATE TABLE IF NOT EXISTS `intervenants` (
+  `id_intervenants` int NOT NULL AUTO_INCREMENT,
+  `nom` int NOT NULL,
+  `compétence` varchar(50) NOT NULL,
+  PRIMARY KEY (`id_intervenants`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+DROP TABLE IF EXISTS `intervenants`;
+CREATE TABLE IF NOT EXISTS `intervenants` (
+  `id_intervenants` int NOT NULL AUTO_INCREMENT,
+  `nom` int NOT NULL,
+  `compétence` varchar(50) NOT NULL,
+  PRIMARY KEY (`id_intervenants`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Contraintes pour la table `inscriptions`
