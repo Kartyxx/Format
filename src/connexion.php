@@ -39,7 +39,7 @@ else{
     <input type="email" name="email" placeholder="Votre id" class="px-4 py-3 bg-slate-950 w-full text-sm outline-none border-b-2 border-amber-500 rounded" required>
     <input type="password" name="mdp" placeholder="Entrez un mdp" class="px-4 py-3 bg-slate-950 w-full text-sm outline-none border-b-2 border-amber-500 rounded" required>
     <button id="" type="submit" class="!mt-8 w-full px-4 py-2.5 mx-auto block text-sm bg-amber-500 text-white rounded hover:bg-amber-700">Se connecter</button>
-    <a href="inscription.php" class="my-5">Inscription</a>
+    <a href="inscription.php" class="m-6">Inscription</a>
   </form>
   
 </div>
