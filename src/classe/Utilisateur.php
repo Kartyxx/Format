@@ -13,7 +13,6 @@ class Utilisateur
     private $fonction;
 
     public function __construct(
-
         $pdo,
         $nom = null,
         $prenom = null,
@@ -22,8 +21,7 @@ class Utilisateur
         $status = null,
         $codeP = null,
         $fonction = null,
-        $localisation = null,
-
+        $localisation = null
     ) {
         $this->pdo=$pdo;
         $this->nom = $nom;
@@ -33,7 +31,7 @@ class Utilisateur
         $this->status = $status;
         $this->codeP = $codeP;
         $this->fonction = $fonction;
-        $this->localisation = $localisation;       
+        $this->localisation = $localisation;
     }
 
     public function seConnecter($email, $mot_de_passe)

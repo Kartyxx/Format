@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `entreprise` (
   `nomPrenomPdg` varchar(255) NOT NULL,
   `Icom` int DEFAULT NULL,
   PRIMARY KEY (`id_entreprise`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `entreprise`
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `formations` (
   `id_formation` int NOT NULL AUTO_INCREMENT,
   `titre` varchar(255) NOT NULL,
   `description` varchar(100) DEFAULT NULL,
-  `domaine` enum('gestion','informatique','développement durable','secourisme','communication') NOT NULL,
+  `id_domaine` int NOT NULL,
   `cout` decimal(10,2) DEFAULT NULL,
   `nombre_max_participants` int DEFAULT NULL,
   `date_debut` date DEFAULT NULL,
@@ -77,9 +77,9 @@ CREATE TABLE IF NOT EXISTS `formations` (
   `objectifs` text,
   `contenu` text,
   `date_limite_inscription` date DEFAULT NULL,
-  `image` longblob,
+  `id_photo` int NOT NULL,
   PRIMARY KEY (`id_formation`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `inscriptions`;
@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `inscriptions` (
   PRIMARY KEY (`id_inscription`),
   KEY `id_participant` (`id_participant`),
   KEY `id_formation` (`id_formation`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -108,14 +108,14 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `prenom` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
   `mot_de_passe` varchar(255) NOT NULL,
-  `status` enum('salariés','bénévoles','secretaire','directeur') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `status` enum('salariés','bénévoles','secretaire','directeur') CHARACTER SET utf8mb4 NOT NULL,
   `localisation` varchar(100) DEFAULT NULL,
-  `codeP` int DEFAULT NULL,
+  `codeP` varchar(5) DEFAULT NULL,
   `ville` varchar(100) DEFAULT NULL,
   `fonction` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id_utilisateur`),
   KEY `entreprise_fk_1` (`id_entreprise`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 ;
 
 
 DROP TABLE IF EXISTS `sessions`;
@@ -129,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `sessions` (
   PRIMARY KEY (`id_sessions`),
   KEY `sessions_fk_1` (`id_formations`),
   KEY `sessions_fk_2` (`id_intervenants`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `intervenants`;
@@ -138,23 +138,21 @@ CREATE TABLE IF NOT EXISTS `intervenants` (
   `nom` int NOT NULL,
   `compétence` varchar(50) NOT NULL,
   PRIMARY KEY (`id_intervenants`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
-DROP TABLE IF EXISTS `intervenants`;
-CREATE TABLE IF NOT EXISTS `intervenants` (
-  `id_intervenants` int NOT NULL AUTO_INCREMENT,
-  `nom` int NOT NULL,
-  `compétence` varchar(50) NOT NULL,
-  PRIMARY KEY (`id_intervenants`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+DROP TABLE IF EXISTS `domaine`;
+CREATE TABLE IF NOT EXISTS `domaine` (
+  `id_domaine` int NOT NULL AUTO_INCREMENT,
+  `libelle` enum('gestion','informatique','développement durable','secourisme','communication') NOT NULL,
+  PRIMARY KEY (`id_domaine`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
-DROP TABLE IF EXISTS `intervenants`;
-CREATE TABLE IF NOT EXISTS `intervenants` (
-  `id_intervenants` int NOT NULL AUTO_INCREMENT,
-  `nom` int NOT NULL,
-  `compétence` varchar(50) NOT NULL,
-  PRIMARY KEY (`id_intervenants`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+DROP TABLE IF EXISTS `photo`;
+CREATE TABLE IF NOT EXISTS `photo` (
+  `id_photo` int NOT NULL AUTO_INCREMENT,
+  `libelle` int NOT NULL,
+  PRIMARY KEY (`id_photo`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Contraintes pour la table `inscriptions`
@@ -171,8 +169,15 @@ ALTER TABLE `sessions`
 --
 ALTER TABLE `utilisateur`
   ADD CONSTRAINT `entreprise_fk_1` FOREIGN KEY (`id_entreprise`) REFERENCES `entreprise` (`id_entreprise`);
+
+
+ALTER TABLE `formations`
+  ADD CONSTRAINT `domaine_fk_1` FOREIGN KEY (`id_domaine`) REFERENCES `domaine` (`id_domaine`),
+  ADD CONSTRAINT `photo_fk_1` FOREIGN KEY (`id_photo`) REFERENCES `photo` (`id_photo`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+

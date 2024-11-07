@@ -38,16 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 
-
-
-
-
-
-
-
-
-
-
 <form action="inscription.php" method="post">
     <h2>Employés</h2>
     <input type="email" name="email" placeholder="Email" required>
