@@ -1,7 +1,7 @@
 <?php
 	$hote= "localhost";
 	$login= "root"; 
-	$mdp = "root"; 
+	$mdp = ""; 
 	$nombd="format";
 	
 	try { 
