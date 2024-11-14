@@ -147,19 +147,19 @@ CREATE TABLE IF NOT EXISTS `domaine` (
   PRIMARY KEY (`id_domaine`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO domaine (libelle) VALUES 
-('gestion'), 
-('informatique'), 
-('développement durable'), 
-('secourisme'), 
-('communication');
+INSERT INTO domaine (id_domaine, libelle) VALUES 
+(1,'gestion'), 
+(2,'informatique'), 
+(3,'développement durable'), 
+(4,'secourisme'), 
+(5,'communication');
 
 
 
 DROP TABLE IF EXISTS `photo`;
 CREATE TABLE IF NOT EXISTS `photo` (
   `id_photo` int NOT NULL AUTO_INCREMENT,
-  `libelle` int NOT NULL,
+  `libelle` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`id_photo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 

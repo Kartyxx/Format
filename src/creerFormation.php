@@ -3,6 +3,9 @@ include 'include/header.php';
 include 'include/connexionbdd.php';
 include 'classe/Formations.php';
 include 'classe/Utilisateur.php';
+include 'classe/Images.php';
+
+session_start();
 
 
 
@@ -28,20 +31,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     
 
 
-    $fileName = $_FILES['imageFormation']['name'];
-    echo $fileName;
+    if (isset($_FILES['imageFormation'])  ) {
+      $fileName = $_FILES['imageFormation']['name'];
+      echo $fileName;
+      move_uploaded_file($_FILES['imageFormation']['tmp_name'], __DIR__ . '/images/' . $_FILES['imageFormation']['name']);
+
+      $images = new Images($connexion);
+      $idImage = $images->insererPhoto($fileName);
 
 
-
+    }
     $formations = new Formations($connexion);
-
-    $formations->creerFormation($titre, $description, $domaine, $cout, $placeMax, $dateDebut, $dateFin, $lieux, $public, $objectifs, $contenu, $datelimite);
+    $formations->creerFormation($titre, $description, $domaine, $cout, $placeMax, $dateDebut, $dateFin, $lieux, $public, $objectifs, $contenu, $datelimite,$idImage);
 
 }
-
-
-
-
 
 
 ?>
@@ -55,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     </a>
   </div>
   
-  <form action="creerFormation.php" method="post" class="space-y-6 px-8 py-10 max-w-md mx-auto bg-gradient-to-r from-blue-50 to-blue-100 shadow-xl rounded-lg font-sans">
+  <form action="creerFormation.php" method="post" enctype="multipart/form-data" class="space-y-6 px-8 py-10 max-w-md mx-auto bg-gradient-to-r from-blue-50 to-blue-100 shadow-xl rounded-lg font-sans">
     <h2 class="text-2xl font-bold text-center text-blue-700 mb-6">Créer une Formation</h2>
 
     <div class="flex flex-col">
