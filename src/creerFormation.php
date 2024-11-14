@@ -3,6 +3,8 @@ include 'include/header.php';
 include 'include/connexionbdd.php';
 include 'classe/Formations.php';
 include 'classe/Utilisateur.php';
+include 'classe/Images.php';
+
 session_start();
 
 
@@ -27,20 +29,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $contenu = $_POST['contenu'];
     $datelimite = $_POST['Datelimite'];
     
-    $fileName = $_FILES['imageFormation']['name'];
-    echo $fileName;
 
 
+    if (isset($_FILES['imageFormation'])  ) {
+      $fileName = $_FILES['imageFormation']['name'];
+      echo $fileName;
+      move_uploaded_file($_FILES['imageFormation']['tmp_name'], __DIR__ . '/images/' . $_FILES['imageFormation']['name']);
 
+      $images = new Images($connexion);
+      $idImage = $images->insererPhoto($fileName);
+
+
+    }
     $formations = new Formations($connexion);
-
-    $formations->creerFormation($titre, $description, $domaine, $cout, $placeMax, $dateDebut, $dateFin, $lieux, $public, $objectifs, $contenu, $datelimite);
+    $formations->creerFormation($titre, $description, $domaine, $cout, $placeMax, $dateDebut, $dateFin, $lieux, $public, $objectifs, $contenu, $datelimite,$idImage);
 
 }
-
-
-
-
 
 
 ?>

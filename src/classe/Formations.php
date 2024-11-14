@@ -25,7 +25,7 @@ function getFormations(){
 
 function creerFormation($titre, $description, $domaine, $cout, $nombre_max_participants, $date_debut, $date_fin, $lieu, $public_concerne, $objectifs, $contenu, $date_limite_inscription, $image){
 
-        $query = "INSERT INTO formations (titre, description, domaine, cout, nombre_max_participants, date_debut, date_fin, lieu, public_concerne, objectifs, contenu, date_limite_inscription, image) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        $query = "INSERT INTO formations (titre, description, id_domaine, cout, nombre_max_participants, date_debut, date_fin, lieu, public_concerne, objectifs, contenu, date_limite_inscription, id_photo) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = $this->pdo->prepare($query);
         $stmt->execute([$titre, $description, $domaine, $cout, $nombre_max_participants, $date_debut, $date_fin, $lieu, $public_concerne, $objectifs, $contenu, $date_limite_inscription, $image]);    
         echo "formation bien créér";
