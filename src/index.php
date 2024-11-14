@@ -18,14 +18,12 @@ $status = $utilisateur->getStatus($_SESSION['user_id']);
 $_SESSION['status'] = $status;
 ?>
 
-<!-- Conteneur principal -->
 <div class="min-h-screen bg-gradient-to-r from-blue-100 via-blue-50 to-blue-100 py-10">
   
-  <!-- Conteneur des formations -->
   <div class="flex flex-wrap justify-center gap-6">
     <?php foreach ($tableFormat as $formation): ?>
+
       <a href="formation.php?id=<?php echo $formation['id_formation']; ?>" class="block w-80 bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-200 hover:scale-105 hover:shadow-xl">
-        <!-- Image de la formation -->
         <?php if (!empty($formation['image'])): ?>
           <?php $imageData = base64_encode($formation['image']); ?>
           <img src="data:image/png;base64,<?php echo $imageData; ?>" alt="Image de la formation" class="w-full h-40 object-cover" />

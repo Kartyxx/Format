@@ -25,6 +25,19 @@ class Images
 
     }
 
-    
+    public function recupererNom($id)
+    {
+        $stmt = $this->pdo->prepare("Select id_photo from formations where id_formation = ?");
+        $stmt->execute([$libelle]);
+        $imageAray = $stmt->fetch();
+        $imageId = $imageId['id_photo'];
+
+        $stmt = $this->pdo->prepare("Select libelle from photo where id_photo = ?");
+        $stmt->execute([$libelle]);
+
+        return $lastInsertId;
+
+    }
+
 
 }
