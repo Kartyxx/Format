@@ -147,6 +147,12 @@ CREATE TABLE IF NOT EXISTS `domaine` (
   PRIMARY KEY (`id_domaine`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
+INSERT INTO domaine (libelle) VALUES 
+('gestion'), 
+('informatique'), 
+('développement durable'), 
+('secourisme'), 
+('communication');
 
 
 

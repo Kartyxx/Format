@@ -57,7 +57,7 @@ class Utilisateur
         $mdp = password_hash($mdp, PASSWORD_DEFAULT);
         $query = "INSERT INTO utilisateur (prenom, nom, statue, email, mot_de_passe, localisation, codeP, ville,fonction, id_entreprise) VALUES ('$prenom', '$nom', '$status', '$email', '$mdp', '$adresse', '$code_postal', '$ville', '$fonction','$idEntrerise')";
         echo $query;
-        $stmt = $this->pdo->prepare("INSERT INTO utilisateur (prenom, nom, statue, email, mot_de_passe, localisation, codeP, ville, fonction, id_entreprise) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt = $this->pdo->prepare("INSERT INTO utilisateur (prenom, nom, status, email, mot_de_passe, localisation, codeP, ville, fonction, id_entreprise) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->execute([$prenom, $nom, $status, $email, $mdp, $adresse, $code_postal, $ville, $fonction, $idEntrerise]);    
         echo "Utilisateur bien créér";
 
