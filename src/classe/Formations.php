@@ -30,5 +30,18 @@ function creerFormation($titre, $description, $domaine, $cout, $nombre_max_parti
         $stmt->execute([$titre, $description, $domaine, $cout, $nombre_max_participants, $date_debut, $date_fin, $lieu, $public_concerne, $objectifs, $contenu, $date_limite_inscription, $image]);    
         echo "formation bien créér";
 }
+
+function suprimerFormation($id){
+
+    $stmt = $this->pdo->prepare("Select id_photo from formations where id_formation = ?");
+    $stmt->execute([$id]);
+    $imageAray = $stmt->fetch();
+    $imageId = $imageAray['id_photo'];
+
+    $query = "DELETE * FROM photo where id_photo = ?";
+    $stmt = $this->pdo->prepare($id_photo);
+    $stmt->execute([$id]);  
+
 }
+
 ?>

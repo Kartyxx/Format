@@ -3,6 +3,7 @@ include 'include/header.php';
 include 'include/connexionbdd.php';
 include 'classe/Formations.php';
 include 'classe/Utilisateur.php';
+include 'classe/Images.php';
 
 
 if (!isset($_SESSION['user_id'])) {
@@ -21,12 +22,17 @@ $_SESSION['status'] = $status;
 <div class="min-h-screen bg-gradient-to-r from-blue-100 via-blue-50 to-blue-100 py-10">
   
   <div class="flex flex-wrap justify-center gap-6">
-    <?php foreach ($tableFormat as $formation): ?>
+    <?php foreach ($tableFormat as $formation): 
+      
+      $images = new Images($connexion);
+      $imageName = $images->recupererNom($formation['id_formation']);
+      ?>
+
+
 
       <a href="formation.php?id=<?php echo $formation['id_formation']; ?>" class="block w-80 bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-200 hover:scale-105 hover:shadow-xl">
-        <?php if (!empty($formation['image'])): ?>
-          <?php $imageData = base64_encode($formation['image']); ?>
-          <img src="data:image/png;base64,<?php echo $imageData; ?>" alt="Image de la formation" class="w-full h-40 object-cover" />
+        <?php if (!empty($formation['id_photo'])): ?>
+          <img src="images/<?php echo $imageName; ?>" alt="Image de la formation" class="w-full h-40 object-cover" />
         <?php endif; ?>
 
         <!-- Détails de la formation -->

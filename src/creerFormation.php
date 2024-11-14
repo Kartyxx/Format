@@ -5,7 +5,6 @@ include 'classe/Formations.php';
 include 'classe/Utilisateur.php';
 include 'classe/Images.php';
 
-session_start();
 
 
 

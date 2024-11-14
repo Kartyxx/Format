@@ -28,14 +28,17 @@ class Images
     public function recupererNom($id)
     {
         $stmt = $this->pdo->prepare("Select id_photo from formations where id_formation = ?");
-        $stmt->execute([$libelle]);
+        $stmt->execute([$id]);
         $imageAray = $stmt->fetch();
-        $imageId = $imageId['id_photo'];
+        $imageId = $imageAray['id_photo'];
 
-        $stmt = $this->pdo->prepare("Select libelle from photo where id_photo = ?");
-        $stmt->execute([$libelle]);
+        
+        $stmt1 = $this->pdo->prepare("Select libelle from photo where id_photo = ?");
+        $stmt1->execute([$imageId]);
+        $imageAray1 = $stmt1->fetch();
+        $imagename = $imageAray1['libelle'];
 
-        return $lastInsertId;
+        return $imagename;
 
     }
 
