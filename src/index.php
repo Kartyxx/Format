@@ -4,7 +4,6 @@ include 'include/connexionbdd.php';
 include 'classe/Formations.php';
 include 'classe/Utilisateur.php';
 
-session_start();
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: connexion.php");

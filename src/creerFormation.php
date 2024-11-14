@@ -3,7 +3,6 @@ include 'include/header.php';
 include 'include/connexionbdd.php';
 include 'classe/Formations.php';
 include 'classe/Utilisateur.php';
-session_start();
 
 
 

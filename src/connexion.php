@@ -2,7 +2,6 @@
 include 'include/header.php';
 include 'include/connexionbdd.php';
 include 'classe/Utilisateur.php';
-session_start();
 
 $response ="";
 
@@ -32,17 +31,6 @@ else{
 
 ?>
 
-
-
-<!--<div class="min-h-screen flex items-center justify-center bg-gray-900">
-  <form action="connexion.php" method="post" class="bg-gray-700 p-8 rounded-lg shadow-lg text-orange-50 space-y-4 max-w-md w-full">
-    <input type="email" name="email" placeholder="Votre id" class="px-4 py-3 bg-slate-950 w-full text-sm outline-none border-b-2 border-amber-500 rounded" required>
-    <input type="password" name="mdp" placeholder="Entrez un mdp" class="px-4 py-3 bg-slate-950 w-full text-sm outline-none border-b-2 border-amber-500 rounded" required>
-    <button id="" type="submit" class="!mt-8 w-full px-4 py-2.5 mx-auto block text-sm bg-amber-500 text-white rounded hover:bg-amber-700">Se connecter</button>
-    <a href="inscription.php" class="m-6">Inscription</a>
-  </form>
-  
-</div>-->
 
 <div class="min-h-screen flex items-center justify-center bg-gray-900">
   <form action="connexion.php" method="post" class="bg-gray-700 p-8 rounded-lg shadow-lg text-orange-50 space-y-4 max-w-md w-full">

@@ -2,7 +2,6 @@
 include 'include/header.php';
 include 'include/connexionbdd.php';
 include 'classe/Utilisateur.php';
-session_start();
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
