@@ -162,5 +162,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         class="px-4 py-2 w-full border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm bg-white shadow-sm" />
     </div>
 
-    <!-- Submit Button -->
-    <button type="submit" class="mt-8 px-4 py-2 w-full bg-blue-600 hover:bg-blue-700 text-sm text-white font-semibold rounded-lg shadow-lg transition duration
+    <button type="submit" class="mt-8 px-4 py-2 w-full bg-blue-600 hover:bg-blue-700 text-sm text-white font-semibold rounded-lg shadow-lg transition duration-200 ease-in-out transform hover:scale-105">
+      Soumettre
+    </button>
+  </form>
+
+  <div class="text-center mt-4">
+    <a href="connexion.php" class="text-blue-600 hover:text-blue-700">Connexion</a>
+  </div>
+
+</div>
