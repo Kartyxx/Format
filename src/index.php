@@ -6,6 +6,10 @@ include 'classe/Utilisateur.php';
 include 'classe/Images.php';
 
 
+
+
+
+
 if (!isset($_SESSION['user_id'])) {
     header("Location: connexion.php");
     exit();
@@ -18,6 +22,16 @@ $utilisateur = new Utilisateur($connexion);
 $status = $utilisateur->getStatus($_SESSION['user_id']);
 $_SESSION['status'] = $status;
 ?>
+
+<!--<script>
+        // Vérifiez si le paramètre "success" est dans l'URL
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('success')) {
+            alert('La formation a été créée avec succès !');
+            // Supprimer le paramètre de l'URL sans recharger la page
+            history.replaceState(null, '', window.location.pathname);
+        }
+  </script>-->
 
 <div class="min-h-screen bg-gradient-to-r from-blue-100 via-blue-50 to-blue-100 py-10">
   
