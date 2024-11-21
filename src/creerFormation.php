@@ -13,6 +13,8 @@ if ($_SESSION['status']!="bénévoles"){
 }
 
 
+
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     $titre = $_POST['Titre'];

@@ -27,12 +27,23 @@ if ($maFormation) {
 
 <div class="min-h-screen bg-gradient-to-r from-blue-100 via-blue-50 to-blue-100 py-10">
 
-  <!-- Bouton de retour -->
-  <div class="flex justify-start max-w-md mx-auto mb-4">
+  <!-- Conteneur des boutons avec Flexbox -->
+  <div class="flex justify-between max-w-2xl mx-auto mb-4">
+
+    <!-- Bouton de retour -->
     <a href="index.php" class="text-white bg-gray-600 hover:bg-gray-700 font-medium rounded-lg text-sm px-5 py-2.5 transition duration-200">
       &larr; Retour à l'accueil
     </a>
+
+    <!-- Bouton d'inscription (visible uniquement si la condition est remplie) -->
+    <?php if ($_SESSION['status'] == "bénévoles") { ?>
+      <button class="text-white bg-gray-600 hover:bg-gray-700 font-medium rounded-lg text-sm px-5 py-2.5 transition duration-200">
+        Inscription &rarr;
+      </button>
+    <?php } ?>
+
   </div>
+
 
   <!-- Tableau des informations -->
   <div class="px-8 py-10 max-w-2xl mx-auto bg-gradient-to-r from-blue-50 to-blue-100 shadow-xl rounded-lg font-sans">
