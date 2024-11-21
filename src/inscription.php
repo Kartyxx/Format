@@ -31,6 +31,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $utilisateur = new Utilisateur($connexion);
     $utilisateur->sInscrire($prenom, $nom, $status, $email, $mdp, $adresse, $code_postal, $ville, $fonction, $idEntrerise);
     
+
+    
 }
 ?>
 
