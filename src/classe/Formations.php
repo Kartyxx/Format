@@ -14,7 +14,6 @@ public function __construct($pdo) {
 
 function getFormations(){
     
-
         $query = "Select * from formations";
         $stmt = $this->pdo->prepare($query);
         $stmt->execute();
@@ -39,9 +38,23 @@ function suprimerFormation($id){
     $imageId = $imageAray['id_photo'];
 
     $query = "DELETE * FROM photo where id_photo = ?";
-    $stmt = $this->pdo->prepare($id_photo);
+    $stmt = $this->pdo->prepare($id);
     $stmt->execute([$id]);  
 
 }
 
+function recupFormationPrecise($id){
+    
+    $query = "Select * from formations where id_formation = ?";
+    $stmt = $this->pdo->prepare($query);
+    $stmt->execute([$id]);
+    $formations = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $formations;
+
+}
+
+
+
+
+}
 ?>
