@@ -24,7 +24,9 @@ if ($response!=null) {
 
 else{
 
-    echo "connexion impossible";
+  
+  echo  "connexion impossible";
+  
 }
 
 
@@ -32,16 +34,37 @@ else{
 ?>
 
 
-<div class="min-h-screen flex items-center justify-center bg-gray-900">
-  <form action="connexion.php" method="post" class="bg-gray-700 p-8 rounded-lg shadow-lg text-orange-50 space-y-4 max-w-md w-full">
-    <input type="email" name="email" placeholder="Votre id" class="px-4 py-3 bg-slate-950 w-full text-sm outline-none border-b-2 border-amber-500 rounded" required>
-    <input type="password" name="mdp" placeholder="Entrez un mdp" class="px-4 py-3 bg-slate-950 w-full text-sm outline-none border-b-2 border-amber-500 rounded" required>
-    <button id="" type="submit" class="!mt-8 w-full px-4 py-2.5 mx-auto block text-sm bg-amber-500 text-white rounded hover:bg-amber-700">Se connecter</button>
-    <!-- Bouton Inscription avec styles similaires -->
-    <a href="inscription.php" class="block text-center w-full px-4 py-2.5 bg-amber-500 text-white rounded hover:bg-amber-700">Inscription</a>
+<div class="min-h-screen bg-gradient-to-r from-blue-100 via-blue-50 to-blue-100 py-10">
+  <form action="connexion.php" method="post" class="space-y-6 px-8 py-10 max-w-md mx-auto bg-gradient-to-r from-blue-50 to-blue-100 shadow-xl rounded-lg font-sans">
+    <h2 class="text-2xl font-bold text-center text-blue-700 mb-6">Se connecter</h2>
+
+    <!-- Input Email -->
+    <div class="flex flex-col">
+      <label for="email" class="text-blue-600 text-sm font-semibold mb-1">Votre Email</label>
+      <input type="email" name="email" placeholder="Votre Email" required
+        class="px-4 py-3 w-full border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm bg-white shadow-sm" />
+    </div>
+
+    <!-- Input Password -->
+    <div class="flex flex-col">
+      <label for="mdp" class="text-blue-600 text-sm font-semibold mb-1">Mot de passe</label>
+      <input type="password" name="mdp" placeholder="Entrez votre mot de passe" required
+        class="px-4 py-3 w-full border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm bg-white shadow-sm" />
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="w-full px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-sm text-white font-semibold rounded-lg shadow-lg transition duration-200 ease-in-out transform hover:scale-105">
+      Se connecter
+    </button>
+
+    <!-- Inscription Link -->
+    <div class="text-center">
+      <a href="inscription.php" class="block text-sm text-blue-600 hover:text-blue-700 mt-4">
+        Inscription
+      </a>
+    </div>
   </form>
 </div>
-
 
 
 
