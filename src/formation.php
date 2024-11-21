@@ -101,9 +101,9 @@ if ($maFormation) {
   <div class="mt-5 flex justify-between max-w-2xl mx-auto mb-4">
 
     <?php if ($_SESSION['status'] == "bénévoles") { ?>
-      <button class="text-white bg-gray-600 hover:bg-gray-700 font-medium rounded-lg text-sm px-5 py-2.5 transition duration-200">
+      <a href="modification.php?id=<?php echo $id; ?>"  class="text-white bg-gray-600 hover:bg-gray-700 font-medium rounded-lg text-sm px-5 py-2.5 transition duration-200">
         Modification &darr;	
-      </button>
+      </a>
     <?php } ?>
 
 
