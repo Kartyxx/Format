@@ -32,13 +32,8 @@ function creerFormation($titre, $description, $domaine, $cout, $nombre_max_parti
 
 function suprimerFormation($id){
 
-    $stmt = $this->pdo->prepare("Select id_photo from formations where id_formation = ?");
-    $stmt->execute([$id]);
-    $imageAray = $stmt->fetch();
-    $imageId = $imageAray['id_photo'];
-
-    $query = "DELETE * FROM photo where id_photo = ?";
-    $stmt = $this->pdo->prepare($id);
+    $query = "DELETE FROM formations where id_formation = ?";
+    $stmt = $this->pdo->prepare($query);
     $stmt->execute([$id]);  
 
 }
@@ -53,7 +48,29 @@ function recupFormationPrecise($id){
 
 }
 
+function modifierFormation($id, $titre, $description, $domaine, $cout, $nombre_max_participants, $date_debut, $date_fin, $lieu, $public_concerne, $objectifs, $contenu, $date_limite_inscription){
 
+
+
+    $query = "UPDATE formations
+    SET 
+        titre = ?,
+        description = ?,
+        id_domaine = ?,
+        cout = ?,
+        nombre_max_participants = ?,
+        date_debut = ?,
+        date_fin = ?,
+        lieu = ?,
+        public_concerne = ?,
+        objectifs = ?,
+        contenu = ?,
+        date_limite_inscription = ?
+    WHERE id_formation = ?;";
+    $stmt = $this->pdo->prepare($query);
+    $stmt->execute([$titre, $description, $domaine, $cout, $nombre_max_participants, $date_debut, $date_fin, $lieu, $public_concerne, $objectifs, $contenu, $date_limite_inscription, $id]); 
+    return $id.$titre;   
+}
 
 
 }

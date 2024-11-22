@@ -46,7 +46,7 @@ if ($maFormation) {
     </a>
   </div>
   
-  <form action="creerFormation.php" method="post" enctype="multipart/form-data" class="space-y-6 px-8 py-10 max-w-md mx-auto bg-gradient-to-r from-blue-50 to-blue-100 shadow-xl rounded-lg font-sans">
+  <form action="formation.php" method="post" enctype="multipart/form-data" class="space-y-6 px-8 py-10 max-w-md mx-auto bg-gradient-to-r from-blue-50 to-blue-100 shadow-xl rounded-lg font-sans">
     <h2 class="text-2xl font-bold text-center text-blue-700 mb-6">Créer une Formation</h2>
 
     <div class="flex flex-col">
@@ -61,16 +61,18 @@ if ($maFormation) {
         class="px-4 py-2 w-full border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm bg-white shadow-sm"><?php echo $titre?></textarea>
     </div>
 
+    <input type="hidden" name="id" value="<?php echo $id ?>" />
+
     <div class="flex flex-col">
-      <label for="domaine" class="text-blue-600 text-sm font-semibold mb-1">Domaine</label>
-      <select class="px-4 py-2 w-full border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm bg-white shadow-sm" name="domaine">
-        <option value="1">Gestion</option>
-        <option value="2">Informatique</option>
-        <option value="3">Développement durable</option>
-        <option value="4">Secourisme</option>
-        <option value="5">Communication</option>
-      </select>
-    </div>
+  <label for="domaine" class="text-blue-600 text-sm font-semibold mb-1">Domaine</label>
+  <select class="px-4 py-2 w-full border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm bg-white shadow-sm" name="domaine">
+    <option value="1" <?php echo $domaine == 1 ? 'selected' : ''; ?>>Gestion</option>
+    <option value="2" <?php echo $domaine == 2 ? 'selected' : ''; ?>>Informatique</option>
+    <option value="3" <?php echo $domaine == 3 ? 'selected' : ''; ?>>Développement durable</option>
+    <option value="4" <?php echo $domaine == 4 ? 'selected' : ''; ?>>Secourisme</option>
+    <option value="5" <?php echo $domaine == 5 ? 'selected' : ''; ?>>Communication</option>
+  </select>
+</div>
 
     <div class="flex flex-col">
       <label for="cout" class="text-blue-600 text-sm font-semibold mb-1">Coût de la formation</label>
