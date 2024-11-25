@@ -68,6 +68,9 @@ $_SESSION['status'] = $status;
         <div class="p-4">
           <h3 class="text-xl font-semibold text-blue-700 mb-2"><?php echo htmlspecialchars($formation['titre']); ?></h3>
           <p class="text-gray-600 text-sm line-clamp-3"><?php echo htmlspecialchars($formation['description']); ?></p>
+          <p class="text-gray-600 text-sm line-clamp-3"><?php echo htmlspecialchars($formation['date_debut']); ?> : <?php echo htmlspecialchars($formation['date_fin']); ?></p>
+          <p class="text-gray-600 text-sm line-clamp-3"><?php echo htmlspecialchars($formation['cout']); ?> €</p>
+
         </div>
       </a>
     <?php endforeach; ?>

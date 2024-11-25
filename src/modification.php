@@ -41,8 +41,8 @@ if ($maFormation) {
   
   <!-- Bouton de retour -->
   <div class="flex justify-start max-w-md mx-auto mb-4">
-    <a href="index.php" class="text-white bg-gray-600 hover:bg-gray-700 font-medium rounded-lg text-sm px-5 py-2.5 transition duration-200">
-      &larr; Retour à l'accueil
+    <a href="formation.php?id=<?php echo $id; ?>" class="text-white bg-gray-600 hover:bg-gray-700 font-medium rounded-lg text-sm px-5 py-2.5 transition duration-200">
+      &larr; Retour à la formation
     </a>
   </div>
   

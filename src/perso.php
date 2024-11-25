@@ -71,15 +71,13 @@ if ($utilisateurs) {
           <td class="px-4 py-2 font-semibold text-blue-600 border border-blue-200">Fonction</td>
           <td class="px-4 py-2 border border-blue-200"><?php echo $fonction ?></td>
         </tr>
-
-
-        <button>
-        <a href="modificationperso.php" class="text-white hover:text-blue-300"></a>
-        </button>
       </tbody>
     </table>
-  </div>
-
+    <div class="mt-6 text-center">
+      <a href="modificationperso.php" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-lg transition duration-200 ease-in-out transform hover:scale-105">
+        Modifier les informations
+      </a>
+    </div>
 </div>
 
 
