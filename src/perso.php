@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 include 'include/header.php';
 include 'include/connexionbdd.php';
@@ -8,25 +8,78 @@ include 'classe/Utilisateur.php';
 
 
 <div class="min-h-screen bg-gradient-to-r from-blue-100 via-blue-50 to-blue-100 py-10">
-<?php 
+<tbody>
+    <?php
 
-echo " Tu vas faire cette page (page perso), fait en sorte que l'utilisateur connécter puisse retrouver toutes ces info (
-id_utilisateur
-entreprise
-nom
-prenom
-email
-status
-localisation
-codeP
-ville
-fonction)
 
-Utilise la classe Utilisateur avec la fonction selecTUser() deja creer
 
-Merci BG : )"
 
+$utilisateurSelect = new Utilisateur($connexion);
+$utilisateurs = $utilisateurSelect->selecTUser($_SESSION['user_id']);
+
+
+
+if ($utilisateurs) {
+     
+      $id = $utilisateurs['id_utilisateur'];
+      $lastname = $utilisateurs['nom'] ;
+      $name = $utilisateurs['prenom'] ;
+      $mail = $utilisateurs['email'] ;
+      $mdp = $utilisateurs['mot_de_passe'] ;
+      $status = $utilisateurs['status'] ;
+      $localisation = $utilisateurs['localisation'] ;
+      $codep = $utilisateurs['codeP'] ;
+      $ville = $utilisateurs['ville'] ;
+      $fonction = $utilisateurs['fonction'] ;
+     '</tr>';
+}
 ?>
+
+<div class="px-8 py-10 max-w-2xl mx-auto bg-gradient-to-r from-blue-50 to-blue-100 shadow-xl rounded-lg font-sans">
+    <h2 class="text-2xl font-bold text-center text-blue-700 mb-6">Informations Personnelles</h2>
+    <table class="table-auto w-full border-collapse border border-blue-200 rounded-lg shadow-sm">
+      <tbody>
+        <tr>
+          <td class="px-4 py-2 font-semibold text-blue-600 border border-blue-200">Nom</td>
+          <td class="px-4 py-2 border border-blue-200"><?php echo $lastname ?></td>
+        </tr>
+        <tr class="bg-blue-100">
+          <td class="px-4 py-2 font-semibold text-blue-600 border border-blue-200">Prenom</td>
+          <td class="px-4 py-2 border border-blue-200"><?php echo $name ?></td>
+        </tr>
+        <tr>
+          <td class="px-4 py-2 font-semibold text-blue-600 border border-blue-200">E-Mail</td>
+          <td class="px-4 py-2 border border-blue-200"><?php echo $mail ?></td>
+        </tr>
+        <tr class="bg-blue-100">
+          <td class="px-4 py-2 font-semibold text-blue-600 border border-blue-200">Status</td>
+          <td class="px-4 py-2 border border-blue-200"><?php echo $status ?></td>
+        </tr>
+        <tr>
+          <td class="px-4 py-2 font-semibold text-blue-600 border border-blue-200">Localisation</td>
+          <td class="px-4 py-2 border border-blue-200"><?php echo $localisation ?></td>
+        </tr>
+        <tr class="bg-blue-100">
+          <td class="px-4 py-2 font-semibold text-blue-600 border border-blue-200">Code Postale</td>
+          <td class="px-4 py-2 border border-blue-200"><?php echo $codep ?></td>
+        </tr>
+        <tr>
+          <td class="px-4 py-2 font-semibold text-blue-600 border border-blue-200">Ville</td>
+          <td class="px-4 py-2 border border-blue-200"><?php echo $ville ?></td>
+        </tr>
+        <tr class="bg-blue-100">
+          <td class="px-4 py-2 font-semibold text-blue-600 border border-blue-200">Fonction</td>
+          <td class="px-4 py-2 border border-blue-200"><?php echo $fonction ?></td>
+        </tr>
+
+
+        <button>
+        <a href="modificationperso.php" class="text-white hover:text-blue-300"></a>
+        </button>
+      </tbody>
+    </table>
+  </div>
+
 </div>
 
 
