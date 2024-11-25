@@ -4,7 +4,7 @@ include 'include/connexionbdd.php';
 include 'classe/Formations.php';
 
 $formation = new Formations($connexion);
-
+$maFormation = false;
 if ($_SERVER['REQUEST_METHOD'] == 'GET'){
 
 $id = $_GET["id"];
@@ -28,13 +28,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
   $contenu = $_POST['contenu'];
   $datelimite = $_POST['Datelimite'];
 
-  $u=$formation->creerFormation($id, $titre, $description, $domaine, $cout, $placeMax, $dateDebut, $dateFin, $lieux, $public, $objectifs, $contenu, $datelimite);
-  echo $u;
+  $formation->modifierFormation($id, $titre, $description, $domaine, $cout, $placeMax, $dateDebut, $dateFin, $lieux, $public, $objectifs, $contenu, $datelimite);
+
 
 }
 
 
-if ($maFormation) {
+if ($maFormation != False) {
 
   $titre = $maFormation['titre'];
   $description = $maFormation['description'];
@@ -48,6 +48,8 @@ if ($maFormation) {
   $objectifs = $maFormation['objectifs'];
   $contenu = $maFormation['contenu'];
   $datelimite = $maFormation['date_limite_inscription'];
+  
+
 }
 ?>
 

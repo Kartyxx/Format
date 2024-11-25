@@ -63,6 +63,19 @@ class Utilisateur
 
     }
 
+    public function selecTUser($id){
+
+        $query = "Select status from utilisateur where id_utilisateur = ?";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->execute([$id]);
+        $Returnstatus = $stmt->fetch(PDO::FETCH_ASSOC);
+        $status = $Returnstatus['status'];
+        return $status;
+
+
+    }
+
+
 
     public function getStatus($id){
 

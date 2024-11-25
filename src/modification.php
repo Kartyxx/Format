@@ -58,7 +58,7 @@ if ($maFormation) {
     <div class="flex flex-col">
       <label for="Description" class="text-blue-600 text-sm font-semibold mb-1">Description</label>
       <textarea id="Description" name="Description" rows="4" 
-        class="px-4 py-2 w-full border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm bg-white shadow-sm"><?php echo $titre?></textarea>
+        class="px-4 py-2 w-full border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm bg-white shadow-sm"><?php echo $description?></textarea>
     </div>
 
     <input type="hidden" name="id" value="<?php echo $id ?>" />

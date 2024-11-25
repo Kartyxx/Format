@@ -66,9 +66,28 @@ function modifierFormation($id, $titre, $description, $domaine, $cout, $nombre_m
         objectifs = ?,
         contenu = ?,
         date_limite_inscription = ?
-    WHERE id_formation = ?;";
+    WHERE id_formation = ?";
     $stmt = $this->pdo->prepare($query);
     $stmt->execute([$titre, $description, $domaine, $cout, $nombre_max_participants, $date_debut, $date_fin, $lieu, $public_concerne, $objectifs, $contenu, $date_limite_inscription, $id]); 
+    
+    
+    /*$query = "UPDATE formations
+    SET 
+        titre = $titre,
+        description = $description,
+        id_domaine = $domaine,
+        cout = $cout,
+        nombre_max_participants = $nombre_max_participants,
+        date_debut = $date_debut,
+        date_fin = $date_fin,
+        lieu = $lieu,
+        public_concerne = $public_concerne,
+        objectifs = $objectifs,
+        contenu = $contenu,
+        date_limite_inscription = $date_limite_inscription
+    WHERE id_formation = $id";
+
+    echo $query;*/
     return $id.$titre;   
 }
 

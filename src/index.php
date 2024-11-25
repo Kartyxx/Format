@@ -48,7 +48,7 @@ $_SESSION['status'] = $status;
         }
   </script>-->
 
-<div class="min-h-screen bg-gradient-to-r from-blue-100 via-blue-50 to-blue-100 py-10">
+<div class="">
 
   <div class="flex flex-wrap justify-center gap-6">
     <?php foreach ($tableFormat as $formation) :

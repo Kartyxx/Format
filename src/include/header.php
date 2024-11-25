@@ -10,31 +10,25 @@ session_start();
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet">
 
-    <title>Format</title>
+    <title>Mon Site</title>
 </head>
-<body class="bg-white-900">
-<nav class="bg-stone-600 shadow ">
-    <div class="container mx-auto p-4 flex justify-between">
+<body class="bg-gray-100">
+<nav class="bg-gray-800 shadow">
+    <div class="container mx-auto p-4 flex justify-between items-center">
 
-<?php
-    if (isset($_SESSION['user_id'])) {
+    <div class="flex space-x-4 items-center">
+            <a href="index.php" class="text-white hover:text-blue-300">Accueil</a>
+            <a href="perso.php" class="text-white hover:text-blue-300">À propos</a>
+            <a href="" class="text-white hover:text-blue-300">Services</a>
+            <a href="" class="text-white hover:text-blue-300">Contact</a>
 
-    ?>    
-    <a href="include/logout.php" class=" px-4  py-2 bg-blue-600 hover:bg-blue-700 text-sm text-white font-semibold rounded-lg shadow-lg transition duration-200 ease-in-out transform hover:scale-105">
-      Déconnexion
-    </a>
-   <?php
-    
-}
-?>
-    <i class="fa-solid  ml-2" style="color: #e60f0f;"></i></a>
-        <div>
-
-
+            <?php if (isset($_SESSION['user_id'])) { ?>
+                <a href="include/logout.php" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-sm text-white font-semibold rounded-lg shadow-lg transition duration-200 ease-in-out transform hover:scale-105">
+                    Déconnexion
+                </a>
+            <?php } ?>
         </div>
     </div>
 </nav>
-
-
-
-
+</body>
+</html>
