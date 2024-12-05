@@ -70,13 +70,10 @@ CREATE TABLE IF NOT EXISTS `formations` (
   `id_domaine` int NOT NULL,
   `cout` decimal(10,2) DEFAULT NULL,
   `nombre_max_participants` int DEFAULT NULL,
-  `date_debut` date DEFAULT NULL,
-  `date_fin` date DEFAULT NULL,
   `lieu` varchar(255) DEFAULT NULL,
   `public_concerne` varchar(255) DEFAULT NULL,
   `objectifs` text,
   `contenu` text,
-  `date_limite_inscription` date DEFAULT NULL,
   `id_photo` int NOT NULL,
   PRIMARY KEY (`id_formation`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
@@ -125,6 +122,7 @@ CREATE TABLE IF NOT EXISTS `sessions` (
   `id_intervenants` int NOT NULL,
   `datesD` datetime NOT NULL,
   `datesF` datetime NOT NULL,
+  `date_limite_inscription` date DEFAULT NULL,
   `lieux` varchar(100) NOT NULL,
   PRIMARY KEY (`id_sessions`),
   KEY `sessions_fk_1` (`id_formations`),

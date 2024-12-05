@@ -77,14 +77,12 @@ if ($utilisateurs) {
         class="px-4 py-2 w-full border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm bg-white shadow-sm" />
     </div>
 
-    <!-- Code Postal Input -->
     <div class="flex flex-col">
       <label for="code_postal" class="text-blue-600 text-sm font-semibold mb-1">Localisation</label>
       <input type="text" id="code_postal" name="code_postal" placeholder="Votre code postal" value="<?php echo $localisation ?>" required
         class="px-4 py-2 w-full border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm bg-white shadow-sm" />
     </div>
 
-    <!-- Ville Input -->
     <div class="flex flex-col">
       <label for="ville" class="text-blue-600 text-sm font-semibold mb-1">Ville</label>
       <input type="text" id="ville" name="ville" placeholder="Votre ville"  value="<?php echo $ville ?>" required
