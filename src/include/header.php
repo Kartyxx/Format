@@ -16,7 +16,7 @@ session_start();
 <nav class="bg-gray-800 shadow">
     <div class="container mx-auto p-4 flex justify-between items-center">
 
-        <a href="index.php" class="text-white text-xl font-bold">Format</a>
+        <a href="index.php" class="text-white text-xl font-bold">CACA</a>
 
         <div class="flex space-x-4 items-center">
             <a href="index.php" class="text-white hover:text-blue-300">Accueil</a>
