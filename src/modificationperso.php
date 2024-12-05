@@ -23,8 +23,7 @@ if ($utilisateurs) {
       $codep = $utilisateurs['codeP'] ;
       $ville = $utilisateurs['ville'] ;
       $fonction = $utilisateurs['fonction'] ;
-     '</tr>';
-}
+  }
 ?>
 <div class="min-h-screen bg-gradient-to-r from-blue-100 via-blue-50 to-blue-100 py-10">
   
@@ -41,11 +40,11 @@ if ($utilisateurs) {
       <label class="text-blue-600 text-sm font-semibold">Statut</label>
       <div class="flex items-center space-x-4">
         <div class="flex items-center">
-          <input type="radio" id="1" name="status" value="bénévoles" class="mr-2">
+          <input type="radio" id="1" name="status" <?php if ($status == "bénévoles") {echo "checked";}?> value="bénévoles" class="mr-2">
           <label for="1">Bénévoles</label>
         </div>
         <div class="flex items-center">
-          <input type="radio" id="2" name="status" value="salariés" class="mr-2">
+          <input type="radio" id="2" name="status" value="salariés" class="mr-2" <?php if ($status == "salariés") {echo "checked";}?>>
           <label for="2">Salariés</label>
         </div>
       </div>

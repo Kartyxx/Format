@@ -31,7 +31,6 @@ if ($utilisateurs) {
       $codep = $utilisateurs['codeP'] ;
       $ville = $utilisateurs['ville'] ;
       $fonction = $utilisateurs['fonction'] ;
-     '</tr>';
 }
 ?>
 
