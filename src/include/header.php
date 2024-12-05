@@ -20,8 +20,8 @@ session_start();
 
         <div class="flex space-x-4 items-center">
             <a href="index.php" class="text-white hover:text-blue-300">Accueil</a>
-            <a href="perso.php" class="text-white hover:text-blue-300">Mes Informations</a>
-            <a href="" class="text-white hover:text-blue-300">Services</a>
+            <a href="perso.php" class="text-white hover:text-blue-300">À propos</a>
+            <a href="historique.php" class="text-white hover:text-blue-300">Historique</a>
             <a href="contact.php" class="text-white hover:text-blue-300">Contact</a>
 
             <?php if (isset($_SESSION['user_id'])) { ?>
