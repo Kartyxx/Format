@@ -54,6 +54,8 @@ if ($maFormation != False) {
 ?>
 
 
+
+
 <div class="min-h-screen bg-gradient-to-r from-blue-100 via-blue-50 to-blue-100 py-10">
 
   <div class="flex justify-between max-w-2xl mx-auto mb-4">
@@ -62,11 +64,7 @@ if ($maFormation != False) {
       &larr; Retour à l'accueil
     </a>
 
-    <?php if ($_SESSION['status'] == "bénévoles") { ?>
-      <button class="text-white bg-gray-600 hover:bg-gray-700 font-medium rounded-lg text-sm px-5 py-2.5 transition duration-200">
-        Inscription &rarr;
-      </button>
-    <?php } ?>
+
 
   </div>
 
@@ -127,24 +125,23 @@ if ($maFormation != False) {
     </table>
   </div>
 
-  <div class="mt-5 flex justify-between max-w-2xl mx-auto mb-4">
+  <!-- Boutons -->
+  <div class="mt-8 flex justify-center gap-4">
 
+  <button class="text-white bg-green-600 hover:bg-green-700 font-medium rounded-lg text-sm px-6 py-3 transition duration-200 shadow-lg">
+        Inscription
+      </button>
     <?php if ($_SESSION['status'] == "bénévoles") { ?>
-      <a href="modification.php?id=<?php echo $id; ?>"  class="text-white bg-gray-600 hover:bg-gray-700 font-medium rounded-lg text-sm px-5 py-2.5 transition duration-200">
-        Modification &darr;	
+      <a href="modification.php?id=<?php echo $id; ?>" class="text-white bg-yellow-500 hover:bg-yellow-600 font-medium rounded-lg text-sm px-6 py-3 transition duration-200 shadow-lg">
+        Modification
+      </a>
+      <a href="index.php?id=<?php echo $id; ?>" onclick="return confirmDeletion();" class="text-white bg-red-500 hover:bg-red-600 font-medium rounded-lg text-sm px-6 py-3 transition duration-200 shadow-lg">
+        Supprimer
       </a>
     <?php } ?>
-
-
-
-    <?php if ($_SESSION['status'] == "bénévoles") { ?>
-      <a href="index.php?id=<?php echo $id; ?>" onclick="return confirmDeletion();" class="text-white bg-gray-600 hover:bg-gray-700 font-medium rounded-lg text-sm px-5 py-2.5 transition duration-200">
-      Supprimer &darr;	
-      </a>
-    <?php } ?>
-
-
+  </div>
 </div>
+
 
 
 
