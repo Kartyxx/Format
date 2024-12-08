@@ -1,5 +1,5 @@
 -- phpMyAdmin SQL Dump
--²- version 5.2.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306

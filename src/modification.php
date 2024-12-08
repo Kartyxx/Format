@@ -27,13 +27,11 @@ if ($maFormation) {
   $domaine = $maFormation['id_domaine'];
   $cout = $maFormation['cout'];
   $placeMax = $maFormation['nombre_max_participants'];
-  $dateDebut = $maFormation['date_debut'];
-  $dateFin = $maFormation['date_fin'];
+
   $public = $maFormation['public_concerne'];
   $lieux = $maFormation['lieu'];
   $objectifs = $maFormation['objectifs'];
   $contenu = $maFormation['contenu'];
-  $datelimite = $maFormation['date_limite_inscription'];
 }
 ?>
 
@@ -86,17 +84,6 @@ if ($maFormation) {
         class="px-4 py-2 w-full border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm bg-white shadow-sm" />
     </div>
 
-    <div class="flex flex-col">
-      <label for="DateDebut" class="text-blue-600 text-sm font-semibold mb-1">Date de début</label>
-      <input type="date" id="DateDebut" name="DateDebut" value="<?php echo $dateDebut?>"
-        class="px-4 py-2 w-full border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm bg-white shadow-sm" />
-    </div>
-
-    <div class="flex flex-col">
-      <label for="DateFin" class="text-blue-600 text-sm font-semibold mb-1">Date de fin</label>
-      <input type="date" id="DateFin" name="DateFin" value="<?php echo $dateFin?>"
-        class="px-4 py-2 w-full border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm bg-white shadow-sm" />
-    </div>
 
     <div class="flex flex-col">
       <label for="public_concerne" class="text-blue-600 text-sm font-semibold mb-1">Public concerné</label>
@@ -122,11 +109,6 @@ if ($maFormation) {
         class="px-4 py-2 w-full border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm bg-white shadow-sm"><?php echo $contenu?></textarea>
     </div>
 
-    <div class="flex flex-col">
-      <label for="Datelimite" class="text-blue-600 text-sm font-semibold mb-1">Date limite d'inscription</label>
-      <input type="date" id="Datelimite" name="Datelimite" value="<?php echo $datelimite?>"
-        class="px-4 py-2 w-full border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm bg-white shadow-sm" />
-    </div>
 
     <button type="submit" 
       class="mt-8 px-4 py-2 w-full bg-blue-600 hover:bg-blue-700 text-sm text-white font-semibold rounded-lg shadow-lg transition duration-200 ease-in-out transform hover:scale-105">

@@ -22,11 +22,11 @@ function getFormations(){
 
 }
 
-function creerFormation($titre, $description, $domaine, $cout, $nombre_max_participants, $date_debut, $date_fin, $lieu, $public_concerne, $objectifs, $contenu, $date_limite_inscription, $image){
+function creerFormation($titre, $description, $domaine, $cout, $nombre_max_participants, $lieu, $public_concerne, $objectifs, $contenu, $image){
 
-        $query = "INSERT INTO formations (titre, description, id_domaine, cout, nombre_max_participants, date_debut, date_fin, lieu, public_concerne, objectifs, contenu, date_limite_inscription, id_photo) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        $query = "INSERT INTO formations (titre, description, id_domaine, cout, nombre_max_participants, lieu, public_concerne, objectifs, contenu, id_photo) VALUES (?,?,?,?,?,?,?,?,?,?)";
         $stmt = $this->pdo->prepare($query);
-        $stmt->execute([$titre, $description, $domaine, $cout, $nombre_max_participants, $date_debut, $date_fin, $lieu, $public_concerne, $objectifs, $contenu, $date_limite_inscription, $image]);    
+        $stmt->execute([$titre, $description, $domaine, $cout, $nombre_max_participants, $lieu, $public_concerne, $objectifs, $contenu, $image]);    
         echo "formation bien créér";
 }
 
@@ -48,7 +48,7 @@ function recupFormationPrecise($id){
 
 }
 
-function modifierFormation($id, $titre, $description, $domaine, $cout, $nombre_max_participants, $date_debut, $date_fin, $lieu, $public_concerne, $objectifs, $contenu, $date_limite_inscription){
+function modifierFormation($id, $titre, $description, $domaine, $cout, $nombre_max_participants, $lieu, $public_concerne, $objectifs, $contenu){
 
 
 
@@ -59,16 +59,13 @@ function modifierFormation($id, $titre, $description, $domaine, $cout, $nombre_m
         id_domaine = ?,
         cout = ?,
         nombre_max_participants = ?,
-        date_debut = ?,
-        date_fin = ?,
         lieu = ?,
         public_concerne = ?,
         objectifs = ?,
-        contenu = ?,
-        date_limite_inscription = ?
+        contenu = ?
     WHERE id_formation = ?";
     $stmt = $this->pdo->prepare($query);
-    $stmt->execute([$titre, $description, $domaine, $cout, $nombre_max_participants, $date_debut, $date_fin, $lieu, $public_concerne, $objectifs, $contenu, $date_limite_inscription, $id]); 
+    $stmt->execute([$titre, $description, $domaine, $cout, $nombre_max_participants, $lieu, $public_concerne, $objectifs, $contenu, $id]); 
     
     
     /*$query = "UPDATE formations

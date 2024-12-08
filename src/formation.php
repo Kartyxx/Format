@@ -20,15 +20,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
   $domaine = $_POST['domaine'];
   $cout = $_POST['cout'];
   $placeMax = $_POST['placeMax'];
-  $dateDebut = $_POST['DateDebut'];
-  $dateFin = $_POST['DateFin'];
   $public = $_POST['public_concerne'];
   $lieux = $_POST['lieux'];
   $objectifs = $_POST['objectifs'];
   $contenu = $_POST['contenu'];
-  $datelimite = $_POST['Datelimite'];
 
-  $formation->modifierFormation($id, $titre, $description, $domaine, $cout, $placeMax, $dateDebut, $dateFin, $lieux, $public, $objectifs, $contenu, $datelimite);
+  $formation->modifierFormation($id, $titre, $description, $domaine, $cout, $placeMax, $lieux, $public, $objectifs, $contenu,);
 
 
 }
@@ -41,14 +38,11 @@ if ($maFormation != False) {
   $domaine = $maFormation['id_domaine'];
   $cout = $maFormation['cout'];
   $placeMax = $maFormation['nombre_max_participants'];
-  $dateDebut = $maFormation['date_debut'];
-  $dateFin = $maFormation['date_fin'];
   $public = $maFormation['public_concerne'];
   $lieux = $maFormation['lieu'];
   $objectifs = $maFormation['objectifs'];
   $contenu = $maFormation['contenu'];
-  $datelimite = $maFormation['date_limite_inscription'];
-  
+
 
 }
 ?>
@@ -94,14 +88,6 @@ if ($maFormation != False) {
           <td class="px-4 py-2 border border-blue-200"><?php echo $placeMax ?></td>
         </tr>
         <tr>
-          <td class="px-4 py-2 font-semibold text-blue-600 border border-blue-200">Date Début</td>
-          <td class="px-4 py-2 border border-blue-200"><?php echo $dateDebut ?></td>
-        </tr>
-        <tr class="bg-blue-100">
-          <td class="px-4 py-2 font-semibold text-blue-600 border border-blue-200">Date Fin</td>
-          <td class="px-4 py-2 border border-blue-200"><?php echo $dateFin ?></td>
-        </tr>
-        <tr>
           <td class="px-4 py-2 font-semibold text-blue-600 border border-blue-200">Public</td>
           <td class="px-4 py-2 border border-blue-200"><?php echo $public ?></td>
         </tr>
@@ -116,10 +102,6 @@ if ($maFormation != False) {
         <tr class="bg-blue-100">
           <td class="px-4 py-2 font-semibold text-blue-600 border border-blue-200">Contenu</td>
           <td class="px-4 py-2 border border-blue-200"><?php echo $contenu ?></td>
-        </tr>
-        <tr>
-          <td class="px-4 py-2 font-semibold text-blue-600 border border-blue-200">Date Limite</td>
-          <td class="px-4 py-2 border border-blue-200"><?php echo $datelimite ?></td>
         </tr>
       </tbody>
     </table>
