@@ -42,16 +42,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $formations = new Formations($connexion);
     $formations->creerFormation($titre, $description, $domaine, $cout, $placeMax, $lieux, $public, $objectifs, $contenu,$idImage);
 
-   //if ($formations) {
-      // Redirection avec un paramètre de succès
-      //header("Location: index.php?success=1");
-     // exit();
-  //} else {
-   //   echo "Erreur lors de la création de la formation.";
- // }
-    
-
-    
 
 }
 
