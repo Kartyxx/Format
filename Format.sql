@@ -83,12 +83,12 @@ DROP TABLE IF EXISTS `inscriptions`;
 CREATE TABLE IF NOT EXISTS `inscriptions` (
   `id_inscription` int NOT NULL AUTO_INCREMENT,
   `id_participant` int DEFAULT NULL,
-  `id_formation` int DEFAULT NULL,
+  `id_sessions` int DEFAULT NULL,
   `date_inscription` date DEFAULT NULL,
   `statut_inscription` enum('en cours','refusé', 'validé') DEFAULT NULL,
   PRIMARY KEY (`id_inscription`),
   KEY `id_participant` (`id_participant`),
-  KEY `id_formation` (`id_formation`)
+  KEY `id_sessions` (`id_sessions`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -166,7 +166,7 @@ CREATE TABLE IF NOT EXISTS `photo` (
 --
 ALTER TABLE `inscriptions`
   ADD CONSTRAINT `inscriptions_fk_1` FOREIGN KEY (`id_participant`) REFERENCES `utilisateur` (`id_utilisateur`),
-  ADD CONSTRAINT `inscriptions_fk_2` FOREIGN KEY (`id_formation`) REFERENCES `formations` (`id_formation`);
+  ADD CONSTRAINT `inscriptions_fk_2` FOREIGN KEY (`id_sessions`) REFERENCES `formations` (`id_sessions`);
 
 ALTER TABLE `sessions`
   ADD CONSTRAINT `sessions_fk_1` FOREIGN KEY (`id_formations`) REFERENCES `formations` (`id_formation`),
