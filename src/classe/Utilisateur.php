@@ -88,12 +88,12 @@ class Utilisateur
 
     }
 
-    public function recuperationUser($id){
+    public function recuperationUser(){
 
-        $query = "Select nom, prenom from utilisateur where id_utilisateur = ?";
+        $query = "Select nom, id_utilisateur , prenom from utilisateur where id_utilisateur";
         $stmt = $this->pdo->prepare($query);
-        $stmt->execute([$id]);
-        $recupUser = $stmt->fetch(PDO::FETCH_ASSOC);
+        $stmt->execute();
+        $recupUser = $stmt->fetchall(PDO::FETCH_ASSOC);
         return $recupUser;
 
 

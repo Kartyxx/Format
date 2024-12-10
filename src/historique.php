@@ -11,12 +11,8 @@ include 'classe/Utilisateur.php';
 
 $utilisateur = new Utilisateur($connexion);
 
-if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-  if (isset($_GET["id"])) {
-    $id = $_GET["id"];
-    $recuperer = $utilisateur->recuperationUser($id);
-  }
-}
+
+$recuperer = $utilisateur->recuperationUser();
 
 // Récupération des sessions si un utilisateur est sélectionné
 if (isset($_POST['id_utilisateur'])) {
