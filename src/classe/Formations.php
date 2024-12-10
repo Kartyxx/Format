@@ -26,8 +26,10 @@ function creerFormation($titre, $description, $domaine, $cout, $nombre_max_parti
 
         $query = "INSERT INTO formations (titre, description, id_domaine, cout, nombre_max_participants, lieu, public_concerne, objectifs, contenu, id_photo) VALUES (?,?,?,?,?,?,?,?,?,?)";
         $stmt = $this->pdo->prepare($query);
-        $stmt->execute([$titre, $description, $domaine, $cout, $nombre_max_participants, $lieu, $public_concerne, $objectifs, $contenu, $image]);    
+        $stmt->execute([$titre, $description, $domaine, $cout, $nombre_max_participants, $lieu, $public_concerne, $objectifs, $contenu, $image]);   
+        $lastId = $this->pdo->lastInsertId(); 
         echo "formation bien créér";
+        return $lastId;
 }
 
 function suprimerFormation($id){
