@@ -133,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `sessions` (
 DROP TABLE IF EXISTS `intervenants`;
 CREATE TABLE IF NOT EXISTS `intervenants` (
   `id_intervenants` int NOT NULL AUTO_INCREMENT,
-  `nom` int NOT NULL,
+  `nom` varchar(50) NOT NULL,
   `compétence` varchar(50) NOT NULL,
   PRIMARY KEY (`id_intervenants`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
@@ -152,6 +152,27 @@ INSERT INTO domaine (id_domaine, libelle) VALUES
 (4,'secourisme'), 
 (5,'communication');
 
+INSERT INTO intervenants (nom, compétence) VALUES
+('Alice Dupont', 'Gestion de projet'),
+('Jean Martin', 'Développement Web'),
+('Clara Morel', 'Design UX/UI'),
+('Paul Durant', 'Marketing Digital'),
+('Marie Lefebvre', 'Formation RH'),
+('Julien Robert', 'Gestion Financière'),
+('Sophie Garnier', 'Animation d\'ateliers'),
+('Lucas Bernard', 'SEO/SEA'),
+('Laura Petit', 'Communication'),
+('Thomas Durand', 'Développement Mobile'),
+('Emilie Caron', 'Formation Bureautique'),
+('Antoine Lambert', 'Data Analysis'),
+('Manon Perrot', 'Gestion d\'événements'),
+('Victor Fontaine', 'Sécurité Informatique'),
+('Camille Laurent', 'Conseil juridique'),
+('Nicolas Rousseau', 'Création de contenus'),
+('Elodie Faure', 'Photographie professionnelle'),
+('Mathieu Moreau', 'Vidéo et montage'),
+('Chloé Girard', 'Relations publiques'),
+('Adrien Renaud', 'Innovation technologique');
 
 
 DROP TABLE IF EXISTS `photo`;
