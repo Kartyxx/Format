@@ -17,7 +17,10 @@ include 'classe/Session.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
  
-  if ($_POST['intervenant']==True){
+  if (isset($_POST['intervenant'])){
+
+    echo "test";
+    print_r($_POST);
 
     $id = $_POST['id'];
     $intervenant = $_POST['intervenant'];
@@ -36,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
  
-  if ($_POST['Titre']==True){
+  if (isset($_POST['Titre'])){
   $titre = $_POST['Titre'];
   $description = $_POST['Description'];
   $domaine = $_POST['domaine'];
@@ -62,8 +65,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $id=$formations->creerFormation($titre, $description, $domaine, $cout, $placeMax, $lieux, $public, $objectifs, $contenu, $idImage);
   $session = new Session($connexion);
   $sessions=$session->getSession($id);
-  echo $id;
-
 }
 }
 
@@ -72,8 +73,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 
-<?php $intervenant = new Intervenant($connexion);
-$intervenants = $intervenant->getIntervenants();?>
+<?php 
+$intervenant = new Intervenant($connexion);
+$intervenants = $intervenant->getIntervenants();
+
+
+
+
+
+if (isset($_POST['intervenant'])){
+
+
+  foreach ($sessions as $sess) {
+
+    $id_intervenants=$sess['id_intervenants'];
+    $datesD=$sess['datesD'];
+    $id_intervenants=$sess['id_intervenants'];
+
+    
+    $intervenants = $intervenant->getIntervenantsNom($id_intervenants);
+  }
+
+}
+
+
+
+?>
+
+
+
 <div class="min-h-screen bg-gradient-to-r from-blue-100 via-blue-50 to-blue-100 py-10">
 
 
@@ -84,12 +112,14 @@ $intervenants = $intervenant->getIntervenants();?>
     </a>
   </div>
 
-  <input type="hidden" id="postId" name="id" value="<?php echo $id; ?>" />
 
   
   <form action="session.php" id="formulaire" method="post" enctype="multipart/form-data" class="space-y-6 px-8 py-10 max-w-md mx-auto bg-gradient-to-r from-blue-50 to-blue-100 shadow-xl rounded-lg font-sans">
     <h2 class="text-2xl font-bold text-center text-blue-700 mb-6">Créer une Session</h2>  
     
+
+    <input type="hidden" id="id" name="id" value="<?php echo $id;?>" />
+
   <div>
     <label for="intervenant" class="block text-sm font-medium text-gray-700">Intervenant</label>
     <select name="intervenant" id="intervenant" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
@@ -128,7 +158,7 @@ $intervenants = $intervenant->getIntervenants();?>
       Soumettre
     </button>
   </div>
-</form>
+  </form>
 
   <?php
   include 'include/footer.php'; ?>

@@ -130,11 +130,22 @@ CREATE TABLE IF NOT EXISTS `sessions` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 
+
+DROP TABLE IF EXISTS `interviens`;
+CREATE TABLE IF NOT EXISTS `interviens` (
+  `id_interviens` int NOT NULL AUTO_INCREMENT,
+  `id_intervenants` int NOT NULL,
+  `id_sessions` int NOT NULL,
+  PRIMARY KEY (`id_interviens`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+
+
+
 DROP TABLE IF EXISTS `intervenants`;
 CREATE TABLE IF NOT EXISTS `intervenants` (
   `id_intervenants` int NOT NULL AUTO_INCREMENT,
   `nom` varchar(50) NOT NULL,
-  `compétence` varchar(50) NOT NULL,
+  `id_domaine` int NOT NULL,
   PRIMARY KEY (`id_intervenants`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
@@ -152,27 +163,19 @@ INSERT INTO domaine (id_domaine, libelle) VALUES
 (4,'secourisme'), 
 (5,'communication');
 
-INSERT INTO intervenants (nom, compétence) VALUES
-('Alice Dupont', 'Gestion de projet'),
-('Jean Martin', 'Développement Web'),
-('Clara Morel', 'Design UX/UI'),
-('Paul Durant', 'Marketing Digital'),
-('Marie Lefebvre', 'Formation RH'),
-('Julien Robert', 'Gestion Financière'),
-('Sophie Garnier', 'Animation d\'ateliers'),
-('Lucas Bernard', 'SEO/SEA'),
-('Laura Petit', 'Communication'),
-('Thomas Durand', 'Développement Mobile'),
-('Emilie Caron', 'Formation Bureautique'),
-('Antoine Lambert', 'Data Analysis'),
-('Manon Perrot', 'Gestion d\'événements'),
-('Victor Fontaine', 'Sécurité Informatique'),
-('Camille Laurent', 'Conseil juridique'),
-('Nicolas Rousseau', 'Création de contenus'),
-('Elodie Faure', 'Photographie professionnelle'),
-('Mathieu Moreau', 'Vidéo et montage'),
-('Chloé Girard', 'Relations publiques'),
-('Adrien Renaud', 'Innovation technologique');
+INSERT INTO intervenants (nom, id_domaine) VALUES
+('Alice Dupont', '1'),
+('Jean Martin', '2'),
+('Clara Morel', '2'),
+('Paul Durant', '2'),
+('Marie Lefebvre', '2'),
+('Julien Robert', '1'),
+('Sophie Garnier', '4'),
+('Lucas Bernard', '1'),
+('Laura Petit', '3'),
+('Thomas Durand', '4'),
+('Emilie Caron', '5'),
+('Antoine Lambert', '5');
 
 
 DROP TABLE IF EXISTS `photo`;
@@ -187,7 +190,7 @@ CREATE TABLE IF NOT EXISTS `photo` (
 --
 ALTER TABLE `inscriptions`
   ADD CONSTRAINT `inscriptions_fk_1` FOREIGN KEY (`id_participant`) REFERENCES `utilisateur` (`id_utilisateur`),
-  ADD CONSTRAINT `inscriptions_fk_2` FOREIGN KEY (`id_sessions`) REFERENCES `formations` (`id_sessions`);
+  ADD CONSTRAINT `inscriptions_fk_2` FOREIGN KEY (`id_sessions`) REFERENCES `sessions` (`id_sessions`);
 
 ALTER TABLE `sessions`
   ADD CONSTRAINT `sessions_fk_1` FOREIGN KEY (`id_formations`) REFERENCES `formations` (`id_formation`),
@@ -202,6 +205,15 @@ ALTER TABLE `utilisateur`
 ALTER TABLE `formations`
   ADD CONSTRAINT `domaine_fk_1` FOREIGN KEY (`id_domaine`) REFERENCES `domaine` (`id_domaine`),
   ADD CONSTRAINT `photo_fk_1` FOREIGN KEY (`id_photo`) REFERENCES `photo` (`id_photo`);
+
+  ALTER TABLE `interviens`
+  ADD CONSTRAINT `id_intervenants_fk_1` FOREIGN KEY (`id_intervenants`) REFERENCES `intervenants` (`id_intervenants`),
+  ADD CONSTRAINT `id_sessions_fk_2` FOREIGN KEY (`id_sessions`) REFERENCES `sessions` (`id_sessions`);
+
+  ALTER TABLE `intervenants`
+  ADD CONSTRAINT `id_domaine_fk_1` FOREIGN KEY (`id_domaine`) REFERENCES `intervenants` (`id_domaine`);
+
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -14,38 +14,6 @@ if ($_SESSION['status']!="bénévoles"){
 
 
 
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-
-    $titre = $_POST['Titre'];
-    $description = $_POST['Description'];
-    $domaine = $_POST['domaine'];
-    $cout = $_POST['cout'];
-    $placeMax = $_POST['placeMax'];
-    $public = $_POST['public_concerne'];
-    $lieux = $_POST['lieux'];
-    $objectifs = $_POST['objectifs'];
-    $contenu = $_POST['contenu'];
-    
-
-
-    if (isset($_FILES['imageFormation'])  ) {
-      $fileName = $_FILES['imageFormation']['name'];
-      echo $fileName;
-      move_uploaded_file($_FILES['imageFormation']['tmp_name'], __DIR__ . '/images/' . $_FILES['imageFormation']['name']);
-
-      $images = new Images($connexion);
-      $idImage = $images->insererPhoto($fileName);
-      
-
-    }
-    $formations = new Formations($connexion);
-    $formations->creerFormation($titre, $description, $domaine, $cout, $placeMax, $lieux, $public, $objectifs, $contenu,$idImage);
-    header("Location: session.php");
-
-}
-
-
 ?>
 
     <div class="min-h-screen bg-gradient-to-r from-blue-100 via-blue-50 to-blue-100 py-10">

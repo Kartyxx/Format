@@ -28,7 +28,7 @@ function creerFormation($titre, $description, $domaine, $cout, $nombre_max_parti
         $stmt = $this->pdo->prepare($query);
         $stmt->execute([$titre, $description, $domaine, $cout, $nombre_max_participants, $lieu, $public_concerne, $objectifs, $contenu, $image]);   
         $lastId = $this->pdo->lastInsertId(); 
-        echo "formation bien créér";
+        echo "formation bien créér".$lastId;
         return $lastId;
 }
 
