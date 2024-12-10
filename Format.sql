@@ -211,7 +211,7 @@ ALTER TABLE `formations`
   ADD CONSTRAINT `id_sessions_fk_2` FOREIGN KEY (`id_sessions`) REFERENCES `sessions` (`id_sessions`);
 
   ALTER TABLE `intervenants`
-  ADD CONSTRAINT `id_domaine_fk_1` FOREIGN KEY (`id_domaine`) REFERENCES `intervenants` (`id_domaine`);
+  ADD CONSTRAINT `id_domaine_fk_1` FOREIGN KEY (`id_domaine`) REFERENCES `domaine` (`id_domaine`);
 
 
 COMMIT;
