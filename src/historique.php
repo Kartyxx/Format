@@ -7,6 +7,18 @@ include 'classe/Utilisateur.php';
 
 <?php
 
+
+
+$utilisateur = new Utilisateur($connexion);
+
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+  if (isset($_GET["id"])) {
+    $id = $_GET["id"];
+    $recuperer = $utilisateur->recuperationUser($id);
+  }
+}
+
+// Récupération des sessions si un utilisateur est sélectionné
 if (isset($_POST['id_utilisateur'])) {
     $id_utilisateur = $_POST['id_utilisateur'];
     $stmt = $pdo->prepare("
@@ -23,9 +35,6 @@ if (isset($_POST['id_utilisateur'])) {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-
 
 <div class="min-h-screen bg-gradient-to-r from-blue-300 via-blue-200 to-blue-100 py-16">
 <body class="bg-gradient-to-r from-blue-100 via-blue-50 to-blue-100 min-h-screen">
@@ -37,11 +46,15 @@ if (isset($_POST['id_utilisateur'])) {
             <label for="id_utilisateur" class="block text-lg font-semibold text-blue-600 mb-2">Sélectionnez un utilisateur :</label>
             <div class="flex items-center gap-4">
                 <select name="id_utilisateur" id="id_utilisateur" class="w-full px-4 py-2 border border-blue-300 rounded-lg">
-                    <?php foreach ($utilisateurs as $utilisateur): ?>
-                        <option value="<?= $utilisateur['id_utilisateur'] ?>">
-                            <?= htmlspecialchars($utilisateur['nom'] . ' ' . $utilisateur['prenom']) ?>
-                        </option>
-                    <?php endforeach; ?>
+                    <?php if (!empty($recuperer)): ?>
+                        <?php foreach ($recuperer as $user): ?>
+                            <option value="<?= htmlspecialchars($user['id_utilisateur']) ?>">
+                                <?= htmlspecialchars($user['nom'] . ' ' . $user['prenom']) ?>
+                            </option>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <option disabled>Aucun utilisateur disponible</option>
+                    <?php endif; ?>
                 </select>
                 <button type="submit" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-lg transition duration-200 ease-in-out transform hover:scale-105">
                     Voir les sessions
@@ -78,8 +91,7 @@ if (isset($_POST['id_utilisateur'])) {
         <?php endif; ?>
     </div>
 </body>
- </div>
-
+</div>
 </html>
 
 

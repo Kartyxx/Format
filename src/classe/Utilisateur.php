@@ -88,6 +88,19 @@ class Utilisateur
 
     }
 
+    public function recuperationUser($id){
+
+        $query = "Select nom, prenom from utilisateur where id_utilisateur = ?";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->execute([$id]);
+        $recupUser = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $recupUser;
+
+
+    }
+
+    
+
 
 
 
