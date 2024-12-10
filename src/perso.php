@@ -11,9 +11,6 @@ include 'classe/Utilisateur.php';
 <tbody>
     <?php
 
-
-
-
 $utilisateurSelect = new Utilisateur($connexion);
 $utilisateurs = $utilisateurSelect->selecTUser($_SESSION['user_id']);
 
