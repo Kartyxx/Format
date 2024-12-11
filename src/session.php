@@ -17,21 +17,31 @@ include 'classe/Session.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
  
-  if (isset($_POST['intervenant'])){
+  if (isset($_POST['start'])){
 
-    echo "test";
-    print_r($_POST);
-
+    if (!empty($_POST['intervenants'])) {
+      $intervenants = $_POST['intervenants'];
+    }
     $id = $_POST['id'];
-    $intervenant = $_POST['intervenant'];
     $start = $_POST['start'];
     $end = $_POST['end'];
     $limit = $_POST['limit'];
     $lieux = $_POST['lieux'];
+    $intervenant = new Intervenant($connexion);
     $session = new Session($connexion);
-    $session->addSession($id, $intervenant, $start, $end, $limit, $lieux);
+    $sessionId = $session->addSession($id, $start, $end, $limit, $lieux);
+
+    
+
+    foreach ($intervenants as $intervenantId) {
+
+    $intervenant->intervention($intervenantId,$sessionId);
+
+    
     $sessions=$session->getSession($id);
-    var_dump($sessions);  
+
+  }
+
   }
 
 }
@@ -63,8 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   $formations = new Formations($connexion);
   $id=$formations->creerFormation($titre, $description, $domaine, $cout, $placeMax, $lieux, $public, $objectifs, $contenu, $idImage);
-  $session = new Session($connexion);
-  $sessions=$session->getSession($id);
+
 }
 }
 
@@ -75,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <?php 
 $intervenant = new Intervenant($connexion);
-$intervenants = $intervenant->getIntervenants();
+$intervenants = $intervenant->getIntervenants($domaine);
 
 
 
@@ -91,7 +100,6 @@ if (isset($_POST['intervenant'])){
     $id_intervenants=$sess['id_intervenants'];
 
     
-    $intervenants = $intervenant->getIntervenantsNom($id_intervenants);
   }
 
 }
@@ -120,15 +128,6 @@ if (isset($_POST['intervenant'])){
 
     <input type="hidden" id="id" name="id" value="<?php echo $id;?>" />
 
-  <div>
-    <label for="intervenant" class="block text-sm font-medium text-gray-700">Intervenant</label>
-    <select name="intervenant" id="intervenant" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-      <?php foreach ($intervenants as $intervenant): ?>
-        <option value="<?= $intervenant['id_intervenants']; ?>"><?= $intervenant['nom']; ?></option>
-      <?php endforeach; ?>
-    </select>
-  </div>
-
   <!-- Champ pour la date de début -->
   <div>
     <label for="start" class="block text-sm font-medium text-gray-700">Date début</label>
@@ -152,13 +151,54 @@ if (isset($_POST['intervenant'])){
     <input type="text" id="lieux" name="lieux" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
   </div>
 
+
+
+        <div id="select-container">
+            <select name="intervenants[]">
+                <?php foreach ($intervenants as $intervenant): ?>
+                    <option value="<?php echo $intervenant['id_intervenants']; ?>">
+                        <?php echo htmlspecialchars($intervenant['nom']); ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+
+        <button type="button" onclick="ajouterSelectBox()">Ajouter un intervenant</button>
+        <br><br>
   <!-- Bouton de soumission -->
   <div class="text-right">
     <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
       Soumettre
     </button>
   </div>
+
+
+    <div id="intervenant-template" style="display: none;">
+        <?php foreach ($intervenants as $intervenant): ?>
+            <option value="<?php echo $intervenant['id_intervenants']; ?>">
+                <?php echo htmlspecialchars($intervenant['nom']); ?>
+            </option>
+        <?php endforeach; ?>
+    </div>
+
+</body>
+</html>
+
+
+
+
   </form>
+  <script>
+        // Fonction pour ajouter une nouvelle liste déroulante
+        function ajouterSelectBox() {
+            const container = document.getElementById('select-container');
+            const newSelect = document.createElement('select');
+            newSelect.name = 'intervenants[]';
+            newSelect.innerHTML = document.getElementById('intervenant-template').innerHTML;
+            container.appendChild(newSelect);
+        }
+    </script>
+
 
   <?php
   include 'include/footer.php'; ?>

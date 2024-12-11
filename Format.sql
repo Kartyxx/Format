@@ -119,14 +119,12 @@ DROP TABLE IF EXISTS `sessions`;
 CREATE TABLE IF NOT EXISTS `sessions` (
   `id_sessions` int NOT NULL AUTO_INCREMENT,
   `id_formations` int NOT NULL,
-  `id_intervenants` int NOT NULL,
   `datesD` datetime NOT NULL,
   `datesF` datetime NOT NULL,
   `date_limite_inscription` date DEFAULT NULL,
   `lieux` varchar(100) NOT NULL,
   PRIMARY KEY (`id_sessions`),
-  KEY `sessions_fk_1` (`id_formations`),
-  KEY `sessions_fk_2` (`id_intervenants`)
+  KEY `sessions_fk_1` (`id_formations`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 
@@ -193,9 +191,8 @@ ALTER TABLE `inscriptions`
   ADD CONSTRAINT `inscriptions_fk_2` FOREIGN KEY (`id_sessions`) REFERENCES `sessions` (`id_sessions`);
 
 ALTER TABLE `sessions`
-  ADD CONSTRAINT `sessions_fk_1` FOREIGN KEY (`id_formations`) REFERENCES `formations` (`id_formation`),
-  ADD CONSTRAINT `sessions_fk_2` FOREIGN KEY (`id_intervenants`) REFERENCES `intervenants` (`id_intervenants`);
---
+  ADD CONSTRAINT `sessions_fk_1` FOREIGN KEY (`id_formations`) REFERENCES `formations` (`id_formation`);
+  --
 -- Contraintes pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
