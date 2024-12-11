@@ -30,8 +30,8 @@ if ($utilisateurs) {
   <form action="inscription.php" method="post" class="space-y-6 px-8 py-10 max-w-md mx-auto bg-gradient-to-r from-blue-50 to-blue-100 shadow-xl rounded-lg font-sans">
     <h2 class="text-2xl font-bold text-center text-blue-700 mb-6">Employés</h2>
 <div class="flex flex-col">
-      <label for="email" class="text-blue-600 text-sm font-semibold mb-1">Nom</label>
-      <input type="email" name="email" placeholder="Email" value="<?php echo $lastname ?>" required
+      <label for="text" class="text-blue-600 text-sm font-semibold mb-1">Nom</label>
+      <input type="text" name="text" placeholder="text" value="<?php echo $lastname ?>" required
         class="px-4 py-2 w-full border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm bg-white shadow-sm" />
     </div>
 
@@ -50,11 +50,7 @@ if ($utilisateurs) {
       </div>
     </div>
 
-    <!-- Fonction Input -->
-    <div class="flex flex-col">
-      <label for="fonction" class="text-blue-600 text-sm font-semibold mb-1">Nom</label>
-      <input type="text" id="fonction" name="fonction" value="<?php echo $lastname ?>" class="px-4 py-2 w-full border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm bg-white shadow-sm" placeholder="Votre fonction" required />
-    </div>
+  
 
     <!-- Prénom Input -->
     <div class="flex flex-col">
