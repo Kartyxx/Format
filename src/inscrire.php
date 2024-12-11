@@ -15,7 +15,7 @@ $session = new Session($connexion);
 $nbSession = $session->coutSession($user_id);
 $nbsess= $nbSession[0]['nb'];
 
-if ($nbsess<=3){
+if ($nbsess<3){
     $session->inscriptionSession($user_id, $id_session, $today);
 }
 else{
