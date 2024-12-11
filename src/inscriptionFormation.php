@@ -68,7 +68,7 @@ $nom_domaine = $formation->getdomaine($domaine);
 
 
 
-
+<div class="min-h-screen bg-gradient-to-r from-blue-300 via-blue-200 to-blue-100 py-16">
 <div class="container mx-auto px-4">
   <div class="flex justify-between max-w-2xl mx-auto mb-4">
     <a href="index.php" class="text-white bg-gray-600 hover:bg-gray-700 font-medium rounded-lg text-sm px-5 py-2.5 transition duration-200">
@@ -79,7 +79,9 @@ $nom_domaine = $formation->getdomaine($domaine);
 
 
     <!-- Partie droite : Liste des sessions -->
-    <div class="bg-white shadow-xl rounded-lg p-8">
+    
+    
+    <div class="min-h-screen bg-gradient-to-r from-blue-300 via-blue-200 to-blue-100 py-16">
       <h2 class="text-2xl font-bold text-center text-blue-700 mb-6">Sessions Créées</h2>
       <?php if (!empty($sessions)): ?>
         <ul class="space-y-4">
@@ -88,7 +90,7 @@ $nom_domaine = $formation->getdomaine($domaine);
               $id_sessions = $sess['id_sessions'];
               $intervenantNameTable = $intervenantClass->getIntervenantsNom($id_sessions);
             ?>
-            <li class="p-4 bg-gradient-to-r from-blue-100 via-blue-50 to-blue-100 rounded-lg shadow">
+            <li class="text-center ">
               <p><strong>Intervenant :</strong> 
                 <?php foreach ($intervenantNameTable as $intervenantName): 
                   $intervenantN = $intervenantName['nom']; ?>
@@ -97,9 +99,11 @@ $nom_domaine = $formation->getdomaine($domaine);
               </p>
               <p><strong>Dates :</strong> <?php echo $sess['datesD']; ?> &rarr; <?php echo $sess['datesF']; ?></p>
               <p><strong>Date limite :</strong> <?php echo $sess['date_limite_inscription']; ?></p>
-              <a href="inscrire.php?id=<?php echo $id_sessions; ?>" class="text-green">
+              <div class="mt-8 flex justify-center gap-4">
+              <a href="inscrire.php?id=<?php echo $id_sessions; ?>" class="text-white bg-green-600 hover:bg-green-700 font-medium rounded-lg text-sm px-6 py-3 transition duration-200 shadow-lg">
       Inscription
       </a>
+                </div>
             </li>
           <?php endforeach; ?>
         </ul>
@@ -108,7 +112,7 @@ $nom_domaine = $formation->getdomaine($domaine);
       <?php endif; ?>
     </div>
   </div>
-
+  </div>
 
 
 <?php

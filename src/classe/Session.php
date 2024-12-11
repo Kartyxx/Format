@@ -44,7 +44,7 @@ function inscriptionSession($id_participant, $id_sessions,	$date_inscription) {
     $query = "INSERT INTO inscriptions (id_participant, id_sessions, date_inscription, statut_inscription) VALUES (?,?,?,'en cours')";
         $stmt = $this->pdo->prepare($query);
         $stmt->execute([$id_participant, $id_sessions, $date_inscription]);   
-        echo "bien inscrit a la session";
+        
 
 }
 
