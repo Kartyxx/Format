@@ -14,8 +14,6 @@ public function __construct($pdo) {
 
 function getIntervenants($id){
 
-        echo $id;
-
         $query = "Select * from intervenants where id_domaine = ?";
         $stmt = $this->pdo->prepare($query);
         $stmt->execute([$id]);
@@ -49,10 +47,10 @@ WHERE intervenants.id_domaine = ? ;";
 
 function getIntervenantsNom($id_intervenants){
     
-    $query = "Select nom from intervenants where id_intervenants = ?";
+    $query = "Select nom from intervenants, interviens, sessions where interviens.id_intervenants = intervenants.id_intervenants and interviens.id_sessions = sessions.id_sessions and sessions.id_sessions = ?";
     $stmt = $this->pdo->prepare($query);
-    $stmt->execute($id_intervenants);
-    $intervenants = $stmt->fetch(PDO::FETCH_ASSOC);
+    $stmt->execute([$id_intervenants]);
+    $intervenants = $stmt->fetchall(PDO::FETCH_ASSOC);
     return $intervenants;
 
 }
