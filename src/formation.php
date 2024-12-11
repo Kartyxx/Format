@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET'){
 $id = $_GET["id"];
 $maFormation = $formation->recupFormationPrecise($id);
 }
-
+$status= $_SESSION['status'];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
@@ -151,10 +151,14 @@ $nom_domaine = $formation->getdomaine($domaine);
   </div>
 
   <div class="mt-8 flex justify-center gap-4">
+  <?php if ($status != "directeur" && $status != "secretaire"): ?>
 
     <a href="inscriptionFormation.php?id=<?php echo $id; ?>" class="text-white bg-green-600 hover:bg-green-700 font-medium rounded-lg text-sm px-6 py-3 transition duration-200 shadow-lg">
       Inscription
       </a>
+
+      <?php endif; ?>
+
     <?php if ($status == "directeur"|| $status == "secretaire"): ?>
       <a href="modification.php?id=<?php echo $id; ?>" class="text-white bg-yellow-500 hover:bg-yellow-600 font-medium rounded-lg text-sm px-6 py-3 transition duration-200 shadow-lg">
         Modification
