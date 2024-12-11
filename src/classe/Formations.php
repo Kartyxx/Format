@@ -114,5 +114,12 @@ function modifierFormation($id, $titre, $description, $domaine, $cout, $nombre_m
 }
 
 
+
+
+
+
+
+
+
 }
 ?>
