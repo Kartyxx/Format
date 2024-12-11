@@ -59,7 +59,7 @@ class Utilisateur
         $stmt = $this->pdo->prepare("INSERT INTO utilisateur (prenom, nom, status, email, mot_de_passe, localisation, codeP, ville, fonction, id_entreprise) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->execute([$prenom, $nom, $status, $email, $mdp, $adresse, $code_postal, $ville, $fonction, $idEntrerise]);    
         echo "Utilisateur bien créér";
-        
+
 
     }
 
@@ -76,6 +76,18 @@ class Utilisateur
 
 
 
+    public function inscriptionValide(){
+
+        $query = "Select * from inscriptions where statut_inscription = 'en cours'";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->execute();
+        $ReturnUser = $stmt->fetchall(PDO::FETCH_ASSOC);
+        return $ReturnUser;
+
+
+    }
+
+    
     public function getStatus($id){
 
         $query = "Select status from utilisateur where id_utilisateur = ?";
@@ -99,22 +111,25 @@ class Utilisateur
 
     }
 
+
+
+
+
+
+    public function refuserInscription($id_inscription) {
+        $query = "UPDATE inscriptions SET statut_inscription = 'refusé' WHERE id_inscription = :id_inscription";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->bindParam(':id_inscription', $id_inscription, PDO::PARAM_INT);
+        return $stmt->execute(); // Retourne true si la requête a réussi
+    }
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public function accepterInscription($id_inscription) {
+        $query = "UPDATE inscriptions SET statut_inscription = 'validé' WHERE id_inscription = :id_inscription";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->bindParam(':id_inscription', $id_inscription, PDO::PARAM_INT);
+        return $stmt->execute(); // Retourne true si la requête a réussi
+    }
+    
 
 
 

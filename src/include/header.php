@@ -23,6 +23,16 @@ session_start();
         <a href="index.php" class="text-white text-xl font-bold">Format</a>
 
         <div class="flex space-x-4 items-center">
+
+            
+            <?php 
+            if (isset($_SESSION['status'])):
+            if ($_SESSION['status'] == "secretaire") :?>
+            <a href="valider.php" class="text-white hover:text-blue-300">Valider</a>
+            <?php endif; ?>
+            <?php endif; ?>
+
+
             <a href="index.php" class="text-white hover:text-blue-300">Accueil</a>
             <a href="perso.php" class="text-white hover:text-blue-300">Mes Informations</a>
             
