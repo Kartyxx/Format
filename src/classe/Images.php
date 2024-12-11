@@ -37,7 +37,6 @@ class Images
         $stmt1->execute([$imageId]);
         $imageAray1 = $stmt1->fetch();
         $imagename = $imageAray1['libelle'];
-
         return $imagename;
 
     }
