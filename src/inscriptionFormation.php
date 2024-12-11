@@ -69,18 +69,15 @@ $nom_domaine = $formation->getdomaine($domaine);
 
 
 <div class="min-h-screen bg-gradient-to-r from-blue-300 via-blue-200 to-blue-100 py-16">
-<div class="container mx-auto px-4">
-  <div class="flex justify-between max-w-2xl mx-auto mb-4">
-    <a href="index.php" class="text-white bg-gray-600 hover:bg-gray-700 font-medium rounded-lg text-sm px-5 py-2.5 transition duration-200">
-      &larr; Retour à l'accueil
-    </a>
-  </div>
+  <div class="container mx-auto px-4">
+    <!-- Bouton de retour -->
+    <div class="flex justify-between max-w-2xl mx-auto mb-4">
+      <a href="index.php" class="text-white bg-gray-600 hover:bg-gray-700 font-medium rounded-lg text-sm px-5 py-2.5 transition duration-200">
+        &larr; Retour à l'accueil
+      </a>
+    </div>
 
-
-
-    <!-- Partie droite : Liste des sessions -->
-    
-    
+    <!-- Liste des sessions -->
     <div class="min-h-screen bg-gradient-to-r from-blue-300 via-blue-200 to-blue-100 py-16">
       <h2 class="text-2xl font-bold text-center text-blue-700 mb-6">Sessions Créées</h2>
       <?php if (!empty($sessions)): ?>
@@ -90,20 +87,23 @@ $nom_domaine = $formation->getdomaine($domaine);
               $id_sessions = $sess['id_sessions'];
               $intervenantNameTable = $intervenantClass->getIntervenantsNom($id_sessions);
             ?>
-            <li class="text-center ">
-              <p><strong>Intervenant :</strong> 
+            <li class="text-center bg-gradient-to-r from-blue-50 to-blue-100 shadow-xl rounded-lg p-8">
+              <p class="text-lg font-semibold text-gray-800">
+                <strong>Intervenant :</strong>
                 <?php foreach ($intervenantNameTable as $intervenantName): 
                   $intervenantN = $intervenantName['nom']; ?>
-                  <?php echo htmlspecialchars($intervenantN) . "."; ?>
-                <?php endforeach; ?> 
+                  <span class="text-blue-700"> <?php echo htmlspecialchars($intervenantN) . '.'; ?></span>
+                <?php endforeach; ?>
               </p>
-              <p><strong>Dates :</strong> <?php echo $sess['datesD']; ?> &rarr; <?php echo $sess['datesF']; ?></p>
-              <p><strong>Date limite :</strong> <?php echo $sess['date_limite_inscription']; ?></p>
+              <p class="text-md text-gray-700 mt-2">
+                <strong>Dates :</strong> <?php echo $sess['datesD']; ?> &rarr; <?php echo $sess['datesF']; ?></p>
+              <p class="text-md text-gray-700 mt-2">
+                <strong>Date limite :</strong> <?php echo $sess['date_limite_inscription']; ?></p>
               <div class="mt-8 flex justify-center gap-4">
-              <a href="inscrire.php?id=<?php echo $id_sessions; ?>" class="text-white bg-green-600 hover:bg-green-700 font-medium rounded-lg text-sm px-6 py-3 transition duration-200 shadow-lg">
-      Inscription
-      </a>
-                </div>
+                <a href="inscrire.php?id=<?php echo $id_sessions; ?>" class="text-white bg-green-600 hover:bg-green-700 font-medium rounded-lg text-sm px-6 py-3 transition duration-200 shadow-lg">
+                  Inscription
+                </a>
+              </div>
             </li>
           <?php endforeach; ?>
         </ul>
@@ -112,7 +112,8 @@ $nom_domaine = $formation->getdomaine($domaine);
       <?php endif; ?>
     </div>
   </div>
-  </div>
+</div>
+
 
 
 <?php
