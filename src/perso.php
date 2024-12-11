@@ -6,8 +6,8 @@ include 'classe/Utilisateur.php';
 ?>
 
 
+<div class="min-h-screen bg-gradient-to-r from-blue-300 via-blue-200 to-blue-100 py-16">
 
-<div class="min-h-screen bg-gradient-to-r from-blue-100 via-blue-50 to-blue-100 py-10">
 <tbody>
     <?php
 
