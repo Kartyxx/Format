@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $intervenantClass = new Intervenant($connexion);
 $intervenants = $intervenantClass->getIntervenants($domaine);
 ?>
-
+<div class="min-h-screen bg-gradient-to-r from-blue-300 via-blue-200 to-blue-100 py-16">
 <div class="container mx-auto px-4">
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
     <!-- Formulaire de création de session -->
@@ -214,7 +214,7 @@ $intervenants = $intervenantClass->getIntervenants($domaine);
     </option>
   <?php endforeach; ?>
 </div>
-
+</div>
 
 
 

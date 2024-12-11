@@ -68,7 +68,7 @@ $nom_domaine = $formation->getdomaine($domaine);
 
 
 
-
+<div class="min-h-screen bg-gradient-to-r from-blue-300 via-blue-200 to-blue-100 py-16">
 <div class="container mx-auto px-4">
   <div class="flex justify-between max-w-2xl mx-auto mb-4">
     <a href="index.php" class="text-white bg-gray-600 hover:bg-gray-700 font-medium rounded-lg text-sm px-5 py-2.5 transition duration-200">
@@ -123,7 +123,7 @@ $nom_domaine = $formation->getdomaine($domaine);
     </div>
 
     <!-- Partie droite : Liste des sessions -->
-    <div class="bg-white shadow-xl rounded-lg p-8">
+    <div class="bg-gradient-to-r from-blue-50 to-blue-100 shadow-xl rounded-lg p-8">
       <h2 class="text-2xl font-bold text-center text-blue-700 mb-6">Sessions Créées</h2>
       <?php if (!empty($sessions)): ?>
         <ul class="space-y-4">
@@ -165,7 +165,7 @@ $nom_domaine = $formation->getdomaine($domaine);
     <?php endif; ?>
   </div>
 </div>
-
+</div>
 
 <?php
 include 'include/footer.php';

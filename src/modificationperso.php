@@ -25,15 +25,12 @@ if ($utilisateurs) {
       $fonction = $utilisateurs['fonction'] ;
   }
 ?>
-<div class="min-h-screen bg-gradient-to-r from-blue-100 via-blue-50 to-blue-100 py-10">
+<div class="min-h-screen bg-gradient-to-r from-blue-300 via-blue-200 to-blue-100 py-16">
   
   <form action="inscription.php" method="post" class="space-y-6 px-8 py-10 max-w-md mx-auto bg-gradient-to-r from-blue-50 to-blue-100 shadow-xl rounded-lg font-sans">
     <h2 class="text-2xl font-bold text-center text-blue-700 mb-6">Employés</h2>
 <div class="flex flex-col">
-      <label for="text" class="text-blue-600 text-sm font-semibold mb-1">Nom</label>
-      <input type="text" name="text" placeholder="text" value="<?php echo $lastname ?>" required
-        class="px-4 py-2 w-full border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm bg-white shadow-sm" />
-    </div>
+      
 
     <!-- Status Radio Inputs -->
     <div class="flex flex-col space-y-2">
@@ -50,7 +47,10 @@ if ($utilisateurs) {
       </div>
     </div>
 
-  
+    <label for="text" class="text-blue-600 text-sm font-semibold mb-1">Nom</label>
+      <input type="text" name="text" placeholder="text" value="<?php echo $lastname ?>" required
+        class="px-4 py-2 w-full border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm bg-white shadow-sm" />
+    </div>
 
     <!-- Prénom Input -->
     <div class="flex flex-col">
@@ -68,14 +68,14 @@ if ($utilisateurs) {
 
     <!-- Adresse Input -->
     <div class="flex flex-col">
-      <label for="adresse" class="text-blue-600 text-sm font-semibold mb-1">Status</label>
-      <input type="text" id="adresse" name="adresse" placeholder="Votre adresse" value="<?php echo $status ?>" required
+      <label for="adresse" class="text-blue-600 text-sm font-semibold mb-1">Adresse</label>
+      <input type="text" id="adresse" name="adresse" placeholder="Votre adresse" value="<?php echo $localisation ?>" required
         class="px-4 py-2 w-full border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm bg-white shadow-sm" />
     </div>
 
     <div class="flex flex-col">
-      <label for="code_postal" class="text-blue-600 text-sm font-semibold mb-1">Localisation</label>
-      <input type="text" id="code_postal" name="code_postal" placeholder="Votre code postal" value="<?php echo $localisation ?>" required
+      <label for="code_postal" class="text-blue-600 text-sm font-semibold mb-1">Code Postal</label>
+      <input type="text" id="code_postal" name="code_postal" placeholder="Votre code postal" value="<?php echo $codep ?>" required
         class="px-4 py-2 w-full border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm bg-white shadow-sm" />
     </div>
 
