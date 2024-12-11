@@ -59,7 +59,7 @@ class Utilisateur
         $stmt = $this->pdo->prepare("INSERT INTO utilisateur (prenom, nom, status, email, mot_de_passe, localisation, codeP, ville, fonction, id_entreprise) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->execute([$prenom, $nom, $status, $email, $mdp, $adresse, $code_postal, $ville, $fonction, $idEntrerise]);    
         echo "Utilisateur bien créér";
-
+        
 
     }
 

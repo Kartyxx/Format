@@ -15,10 +15,14 @@ public function __construct($pdo) {
 function getSession($id) {
     $query = "SELECT * FROM sessions WHERE id_formations = ?";
     $stmt = $this->pdo->prepare($query);
-    $stmt->execute([$id]); // Corrigé : Passer $id dans un tableau
-    $intervenants = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    return $intervenants;
+    $stmt->execute([$id]); 
+    $session = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+    return $session;
 }
+
+
+
 
 
 function addSession($id_formations, $datesD, $datesF, $date_limite_inscription, $lieux) {

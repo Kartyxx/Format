@@ -76,51 +76,7 @@ $nom_domaine = $formation->getdomaine($domaine);
     </a>
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-    <!-- Partie gauche : Détails de la formation -->
-    <div class="bg-gradient-to-r from-blue-50 to-blue-100 shadow-xl rounded-lg p-8">
-      <h2 class="text-2xl font-bold text-center text-blue-700 mb-6">Détails de la Formation</h2>
-      <table class="table-auto w-full border-collapse border border-blue-200 rounded-lg shadow-sm">
-        <tbody>
-          <tr class="bg-blue-100">
-            <td class="px-4 py-2 font-semibold text-blue-600 border border-blue-200">Titre</td>
-            <td class="px-4 py-2 border border-blue-200"><?php echo $titre ?></td>
-          </tr>
-          <tr>
-            <td class="px-4 py-2 font-semibold text-blue-600 border border-blue-200">Description</td>
-            <td class="px-4 py-2 border border-blue-200"><?php echo $description ?></td>
-          </tr>
-          <tr class="bg-blue-100">
-            <td class="px-4 py-2 font-semibold text-blue-600 border border-blue-200">Domaine</td>
-            <td class="px-4 py-2 border border-blue-200"><?php echo $nom_domaine ?></td>
-          </tr>
-          <tr>
-            <td class="px-4 py-2 font-semibold text-blue-600 border border-blue-200">Prix</td>
-            <td class="px-4 py-2 border border-blue-200"><?php echo $cout ?></td>
-          </tr>
-          <tr class="bg-blue-100">
-            <td class="px-4 py-2 font-semibold text-blue-600 border border-blue-200">Place Max</td>
-            <td class="px-4 py-2 border border-blue-200"><?php echo $placeMax ?></td>
-          </tr>
-          <tr>
-            <td class="px-4 py-2 font-semibold text-blue-600 border border-blue-200">Public</td>
-            <td class="px-4 py-2 border border-blue-200"><?php echo $public ?></td>
-          </tr>
-          <tr class="bg-blue-100">
-            <td class="px-4 py-2 font-semibold text-blue-600 border border-blue-200">Lieu</td>
-            <td class="px-4 py-2 border border-blue-200"><?php echo $lieux ?></td>
-          </tr>
-          <tr>
-            <td class="px-4 py-2 font-semibold text-blue-600 border border-blue-200">Objectifs</td>
-            <td class="px-4 py-2 border border-blue-200"><?php echo $objectifs ?></td>
-          </tr>
-          <tr class="bg-blue-100">
-            <td class="px-4 py-2 font-semibold text-blue-600 border border-blue-200">Contenu</td>
-            <td class="px-4 py-2 border border-blue-200"><?php echo $contenu ?></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+
 
     <!-- Partie droite : Liste des sessions -->
     <div class="bg-white shadow-xl rounded-lg p-8">
@@ -141,6 +97,9 @@ $nom_domaine = $formation->getdomaine($domaine);
               </p>
               <p><strong>Dates :</strong> <?php echo $sess['datesD']; ?> &rarr; <?php echo $sess['datesF']; ?></p>
               <p><strong>Date limite :</strong> <?php echo $sess['date_limite_inscription']; ?></p>
+              <a href="inscrire.php?id=<?php echo $id_sessions; ?>" class="text-green">
+      Inscription
+      </a>
             </li>
           <?php endforeach; ?>
         </ul>
@@ -151,9 +110,10 @@ $nom_domaine = $formation->getdomaine($domaine);
   </div>
 
   <div class="mt-8 flex justify-center gap-4">
-    <button class="text-white bg-green-600 hover:bg-green-700 font-medium rounded-lg text-sm px-6 py-3 transition duration-200 shadow-lg">
+
+    <a href="inscriptionFormation.php?id=<?php echo $id; ?>" class="text-white bg-green-600 hover:bg-green-700 font-medium rounded-lg text-sm px-6 py-3 transition duration-200 shadow-lg">
       Inscription
-    </button>
+      </a>
     <?php if ($_SESSION['status'] == "bénévoles"): ?>
       <a href="modification.php?id=<?php echo $id; ?>" class="text-white bg-yellow-500 hover:bg-yellow-600 font-medium rounded-lg text-sm px-6 py-3 transition duration-200 shadow-lg">
         Modification
