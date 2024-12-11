@@ -155,7 +155,7 @@ $nom_domaine = $formation->getdomaine($domaine);
     <a href="inscriptionFormation.php?id=<?php echo $id; ?>" class="text-white bg-green-600 hover:bg-green-700 font-medium rounded-lg text-sm px-6 py-3 transition duration-200 shadow-lg">
       Inscription
       </a>
-    <?php if ($_SESSION['status'] == "bénévoles"): ?>
+    <?php if ($status == "directeur"|| $status == "secretaire"): ?>
       <a href="modification.php?id=<?php echo $id; ?>" class="text-white bg-yellow-500 hover:bg-yellow-600 font-medium rounded-lg text-sm px-6 py-3 transition duration-200 shadow-lg">
         Modification
       </a>

@@ -6,10 +6,10 @@ include 'classe/Utilisateur.php';
 include 'classe/Images.php';
 
 
+$status =$_SESSION['status'];
 
-
-if ($_SESSION['status']!="bénévoles"){
-    header("Location: index.php");
+if ($status != "directeur" && $status != "secretaire") {
+  header("Location: index.php");
 }
 
 
