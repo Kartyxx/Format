@@ -25,6 +25,18 @@ session_start();
         <div class="flex space-x-4 items-center">
 
             
+
+
+
+            <a href="index.php" class="text-white hover:text-blue-300">Accueil</a>
+            
+            <?php 
+            if (isset($_SESSION['status'])):
+            if ($_SESSION['status'] == "bénévoles" || $_SESSION['status'] == "salariés") :?>
+            <a href="historique.php" class="text-white hover:text-blue-300">Historique</a>
+            <?php endif; ?>
+            <?php endif; ?>
+
             <?php 
             if (isset($_SESSION['status'])):
             if ($_SESSION['status'] == "secretaire") :?>
@@ -32,11 +44,9 @@ session_start();
             <?php endif; ?>
             <?php endif; ?>
 
-
-            <a href="index.php" class="text-white hover:text-blue-300">Accueil</a>
             <a href="perso.php" class="text-white hover:text-blue-300">Mes Informations</a>
             
-            <a href="historique.php" class="text-white hover:text-blue-300">Historique</a>
+            <a href="allinfos.php" class="text-white hover:text-blue-300">Historique</a>
             
             <a href="contact.php" class="text-white hover:text-blue-300">Contact</a>
 

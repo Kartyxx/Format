@@ -1,97 +1,68 @@
 <?php
-
 include 'include/header.php';
 include 'include/connexionbdd.php';
+include 'classe/Formations.php';
 include 'classe/Utilisateur.php';
-?>
+include 'classe/Images.php';
 
-<?php
-
-
-
-$utilisateur = new Utilisateur($connexion);
-
-
-$recuperer = $utilisateur->recuperationUser();
-
-// Récupération des sessions si un utilisateur est sélectionné
-if (isset($_POST['id_utilisateur'])) {
-    $id_utilisateur = $_POST['id_utilisateur'];
-    $stmt = $pdo->prepare("
-        SELECT u.nom, u.prenom, s.datesD, s.datesF, s.lieux
-        FROM utilisateur u
-        JOIN inscriptions i ON u.id_utilisateur = i.id_utilisateur
-        JOIN sessions s ON i.id_sessions = s.id_sessions
-        WHERE u.id_utilisateur = :id_utilisateur
-    ");
-    $stmt->execute(['id_utilisateur' => $id_utilisateur]);
-    $resultats = $stmt->fetchAll(PDO::FETCH_ASSOC);
-} else {
-    $resultats = [];
+if (!isset($_SESSION['user_id'])) {
+    header("Location: connexion.php");
+    exit();
 }
-?>
 
+// Récupération des inscriptions
+$utilisateur = new Utilisateur($connexion);
+$inscriptions = $utilisateur->getInscription($_SESSION['user_id']);
+?>
 
 <div class="min-h-screen bg-gradient-to-r from-blue-300 via-blue-200 to-blue-100 py-16">
-<body class="bg-gradient-to-r from-blue-100 via-blue-50 to-blue-100 min-h-screen">
-    <div class="px-8 py-10 max-w-2xl mx-auto bg-gradient-to-r from-blue-50 to-blue-100 shadow-xl rounded-lg font-sans">
-        <h2 class="text-2xl font-bold text-center text-blue-700 mb-6">Gestion des Formations</h2>
-
-        <!-- Formulaire pour sélectionner un utilisateur -->
-        <form method="post" action="" class="mb-6">
-            <label for="id_utilisateur" class="block text-lg font-semibold text-blue-600 mb-2">Sélectionnez un utilisateur :</label>
-            <div class="flex items-center gap-4">
-                <select name="id_utilisateur" id="id_utilisateur" class="w-full px-4 py-2 border border-blue-300 rounded-lg">
-                    <?php if (!empty($recuperer)): ?>
-                        <?php foreach ($recuperer as $user): ?>
-                            <option value="<?= htmlspecialchars($user['id_utilisateur']) ?>">
-                                <?= htmlspecialchars($user['nom'] . ' ' . $user['prenom']) ?>
-                            </option>
-                        <?php endforeach; ?>
-                    <?php else: ?>
-                        <option disabled>Aucun utilisateur disponible</option>
-                    <?php endif; ?>
-                </select>
-                <button type="submit" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-lg transition duration-200 ease-in-out transform hover:scale-105">
-                    Voir les sessions
-                </button>
-            </div>
-        </form>
-
-        <!-- Affichage des sessions de l'utilisateur -->
-        <?php if (!empty($resultats)): ?>
-            <table class="table-auto w-full border-collapse border border-blue-200 rounded-lg shadow-sm">
-                <thead class="bg-blue-100">
-                    <tr>
-                        <th class="px-4 py-2 font-semibold text-blue-600 border border-blue-200">Nom</th>
-                        <th class="px-4 py-2 font-semibold text-blue-600 border border-blue-200">Prénom</th>
-                        <th class="px-4 py-2 font-semibold text-blue-600 border border-blue-200">Date de début</th>
-                        <th class="px-4 py-2 font-semibold text-blue-600 border border-blue-200">Date de fin</th>
-                        <th class="px-4 py-2 font-semibold text-blue-600 border border-blue-200">Lieu</th>
+    <div class="container mx-auto">
+        <h1 class="text-3xl font-bold text-center mb-8">Mes Dernières Inscriptions</h1>
+        <?php if (!empty($inscriptions)) : ?>
+            <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+                <thead>
+                    <tr class="bg-blue-500 text-white">
+                        <th class="py-3 px-4 text-left">ID Inscription</th>
+                        <th class="py-3 px-4 text-left">ID Session</th>
+                        <th class="py-3 px-4 text-left">Date Inscription</th>
+                        <th class="py-3 px-4 text-center">Statut</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($resultats as $index => $resultat): ?>
-                        <tr class="<?= $index % 2 == 0 ? '' : 'bg-blue-100' ?>">
-                            <td class="px-4 py-2 border border-blue-200"><?= htmlspecialchars($resultat['nom']) ?></td>
-                            <td class="px-4 py-2 border border-blue-200"><?= htmlspecialchars($resultat['prenom']) ?></td>
-                            <td class="px-4 py-2 border border-blue-200"><?= htmlspecialchars($resultat['datesD']) ?></td>
-                            <td class="px-4 py-2 border border-blue-200"><?= htmlspecialchars($resultat['datesF']) ?></td>
-                            <td class="px-4 py-2 border border-blue-200"><?= htmlspecialchars($resultat['lieux']) ?></td>
+                    <?php foreach ($inscriptions as $inscription) : ?>
+                        <tr class="border-b hover:bg-gray-100">
+                            <td class="py-3 px-4"><?php echo $inscription['id_inscription']; ?></td>
+                            <td class="py-3 px-4"><?php echo $inscription['id_sessions']; ?></td>
+                            <td class="py-3 px-4"><?php echo $inscription['date_inscription']; ?></td>
+                            <td class="py-3 px-4 text-center">
+                                <span class="<?php echo getStatusClass($inscription['statut_inscription']); ?>">
+                                    <?php echo ucfirst($inscription['statut_inscription']); ?>
+                                </span>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
-        <?php else: ?>
-            <p class="text-center text-blue-600 font-semibold mt-4">Aucune session disponible pour cet utilisateur.</p>
+        <?php else : ?>
+            <p class="text-center text-gray-700">Aucune inscription trouvée.</p>
         <?php endif; ?>
     </div>
-</body>
 </div>
-</html>
 
+<?php
+include 'include/footer.php';
 
-
-
-
-<?php include 'include/footer.php'; ?>
+// Fonction pour retourner la classe CSS basée sur le statut
+function getStatusClass($status) {
+    switch ($status) {
+        case 'en cours':
+            return 'bg-yellow-200 text-yellow-800 px-2 py-1 rounded font-bold';
+        case 'refusé':
+            return 'bg-red-200 text-red-800 px-2 py-1 rounded font-bold';
+        case 'validé':
+            return 'bg-green-200 text-green-800 px-2 py-1 rounded font-bold';
+        default:
+            return 'bg-gray-200 text-gray-800 px-2 py-1 rounded font-bold';
+    }
+}
+?>

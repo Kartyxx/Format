@@ -135,7 +135,16 @@ class Utilisateur
 
 
 
+    public function getInscription($id){
 
+        $query = "Select * from inscriptions where id_participant = ?";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->execute([$id]);
+        $inscription = $stmt->fetchall(PDO::FETCH_ASSOC);
+        return $inscription;
+
+
+    }
 
 
 
