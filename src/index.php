@@ -56,8 +56,9 @@ $_SESSION['status'] = $status;
       <?php endforeach; ?>
     </div>
 
+
     <!-- Button to create a formation for volunteers -->
-    <?php if ($status == "bénévoles") : ?>
+    <?php if ($status == "directeur"|| $status == "secretaire") : ?>
       <div class="flex justify-center mt-10">
         <a href="creerFormation.php" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg text-lg px-6 py-3 transition duration-300 transform hover:scale-105">
           Créer une formation

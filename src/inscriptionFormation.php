@@ -109,21 +109,6 @@ $nom_domaine = $formation->getdomaine($domaine);
     </div>
   </div>
 
-  <div class="mt-8 flex justify-center gap-4">
-
-    <a href="inscriptionFormation.php?id=<?php echo $id; ?>" class="text-white bg-green-600 hover:bg-green-700 font-medium rounded-lg text-sm px-6 py-3 transition duration-200 shadow-lg">
-      Inscription
-      </a>
-    <?php if ($_SESSION['status'] == "bénévoles"): ?>
-      <a href="modification.php?id=<?php echo $id; ?>" class="text-white bg-yellow-500 hover:bg-yellow-600 font-medium rounded-lg text-sm px-6 py-3 transition duration-200 shadow-lg">
-        Modification
-      </a>
-      <a href="index.php?id=<?php echo $id; ?>" onclick="return confirmDeletion();" class="text-white bg-red-500 hover:bg-red-600 font-medium rounded-lg text-sm px-6 py-3 transition duration-200 shadow-lg">
-        Supprimer
-      </a>
-    <?php endif; ?>
-  </div>
-</div>
 
 
 <?php

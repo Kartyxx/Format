@@ -49,6 +49,27 @@ function inscriptionSession($id_participant, $id_sessions,	$date_inscription) {
 }
 
 
+function coutSession($id_utilisiteur) {
+
+    $query = "
+SELECT COUNT(inscriptions.id_inscription) As nb
+FROM inscriptions
+INNER JOIN utilisateur
+ON inscriptions.id_participant = utilisateur.id_utilisateur
+WHERE utilisateur.id_utilisateur = ? ;";
+
+
+
+        $stmt = $this->pdo->prepare($query);
+        $stmt->execute([$id_utilisiteur]);
+        $nbSession = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $nbSession;
+
+}
+
+
+
+
 
 
 

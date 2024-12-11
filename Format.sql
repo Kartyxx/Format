@@ -183,6 +183,12 @@ CREATE TABLE IF NOT EXISTS `photo` (
   PRIMARY KEY (`id_photo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
+
+
+INSERT INTO `utilisateur` (`id_utilisateur`, `id_entreprise`, `nom`, `prenom`, `email`, `mot_de_passe`, `status`, `localisation`, `codeP`, `ville`, `fonction`) VALUES
+(5, 3, 'courtine', 'Jérome', 'Jcourtine@gmail.com', '$2y$10$KOpeyfHK0ZhaXayOCgkWre9z1amI9.Q9giW9PcHVFbSrfWGvKP/Qe', 'directeur', 'toulouse', '31100', 'toulouse', 'PDG'),
+(6, 1, 'Stéphanie', 'Andres', 'A.Stéphanie@gmail.com', '$2y$10$ELPgWVGgobcy/xMsGFNhMuvEt0PDz5fl4WNQytvSaLODZp5.wpLX.', 'secretaire', 'toulouse', '31100', 'toulouse', 'secraitaire');
+
 --
 -- Contraintes pour la table `inscriptions`
 --
