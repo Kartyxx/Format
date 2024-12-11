@@ -157,11 +157,11 @@ CREATE TABLE IF NOT EXISTS `domaine` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO domaine (id_domaine, libelle) VALUES 
-(1,'gestion'), 
-(2,'informatique'), 
-(3,'développement durable'), 
-(4,'secourisme'), 
-(5,'communication');
+(1,'Gestion'), 
+(2,'Informatique'), 
+(3,'Développement durable'), 
+(4,'Secourisme'), 
+(5,'Communication');
 
 INSERT INTO intervenants (nom, id_domaine) VALUES
 ('Alice Dupont', '1'),

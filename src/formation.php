@@ -31,11 +31,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 }
 
 
+
+
 if ($maFormation != False) {
 
   $titre = $maFormation['titre'];
   $description = $maFormation['description'];
   $domaine = $maFormation['id_domaine'];
+  
   $cout = $maFormation['cout'];
   $placeMax = $maFormation['nombre_max_participants'];
   $public = $maFormation['public_concerne'];
@@ -45,6 +48,10 @@ if ($maFormation != False) {
 
 
 }
+$nom_domaine = $formation->getdomaine($domaine);
+
+
+
 ?>
 
 
@@ -77,7 +84,7 @@ if ($maFormation != False) {
         </tr>
         <tr class="bg-blue-100">
           <td class="px-4 py-2 font-semibold text-blue-600 border border-blue-200">Domaine</td>
-          <td class="px-4 py-2 border border-blue-200"><?php echo $domaine ?></td>
+          <td class="px-4 py-2 border border-blue-200"><?php echo $nom_domaine ?></td>
         </tr>
         <tr>
           <td class="px-4 py-2 font-semibold text-blue-600 border border-blue-200">Prix</td>

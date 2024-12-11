@@ -22,6 +22,9 @@ function getFormations(){
 
 }
 
+
+
+
 function creerFormation($titre, $description, $domaine, $cout, $nombre_max_participants, $lieu, $public_concerne, $objectifs, $contenu, $image){
 
         $query = "INSERT INTO formations (titre, description, id_domaine, cout, nombre_max_participants, lieu, public_concerne, objectifs, contenu, id_photo) VALUES (?,?,?,?,?,?,?,?,?,?)";
@@ -30,6 +33,16 @@ function creerFormation($titre, $description, $domaine, $cout, $nombre_max_parti
         $lastId = $this->pdo->lastInsertId(); 
         echo "formation bien créér".$lastId;
         return $lastId;
+}
+
+function getdomaine($domaine){
+    
+    $query = "Select libelle from domaine where id_domaine = ?";
+    $stmt = $this->pdo->prepare($query);
+    $stmt->execute([$domaine]);
+    $n_domaine = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $n_domaine['libelle'] ?? null;
+
 }
 
 function suprimerFormation($id){
