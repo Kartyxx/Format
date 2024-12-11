@@ -101,9 +101,7 @@ if (isset($_POST['intervenant'])){
 ?>
 
 
-
-<div class="min-h-screen bg-gradient-to-r from-blue-100 via-blue-50 to-blue-100 py-10">
-
+<div class="min-h-screen bg-gradient-to-r from-blue-300 via-blue-200 to-blue-100 py-16">
 
   <!-- Bouton de retour -->
   <div class="flex justify-start max-w-md mx-auto mb-4">
@@ -112,53 +110,51 @@ if (isset($_POST['intervenant'])){
     </a>
   </div>
 
-
-  
   <form action="session.php" id="formulaire" method="post" enctype="multipart/form-data" class="space-y-6 px-8 py-10 max-w-md mx-auto bg-gradient-to-r from-blue-50 to-blue-100 shadow-xl rounded-lg font-sans">
     <h2 class="text-2xl font-bold text-center text-blue-700 mb-6">Créer une Session</h2>  
-    
 
     <input type="hidden" id="id" name="id" value="<?php echo $id;?>" />
 
-  <div>
-    <label for="intervenant" class="block text-sm font-medium text-gray-700">Intervenant</label>
-    <select name="intervenant" id="intervenant" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-      <?php foreach ($intervenants as $intervenant): ?>
-        <option value="<?= $intervenant['id_intervenants']; ?>"><?= $intervenant['nom']; ?></option>
-      <?php endforeach; ?>
-    </select>
-  </div>
+    <div>
+      <label for="intervenant" class="block text-sm font-medium text-gray-700">Intervenant</label>
+      <select name="intervenant" id="intervenant" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+        <?php foreach ($intervenants as $intervenant): ?>
+          <option value="<?= $intervenant['id_intervenants']; ?>"><?= $intervenant['nom']; ?></option>
+        <?php endforeach; ?>
+      </select>
+    </div>
 
-  <!-- Champ pour la date de début -->
-  <div>
-    <label for="start" class="block text-sm font-medium text-gray-700">Date début</label>
-    <input type="date" id="start" name="start" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-  </div>
+    <!-- Champ pour la date de début -->
+    <div>
+      <label for="start" class="block text-sm font-medium text-gray-700">Date début</label>
+      <input type="date" id="start" name="start" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+    </div>
 
-  <!-- Champ pour la date de fin -->
-  <div>
-    <label for="end" class="block text-sm font-medium text-gray-700">Date fin</label>
-    <input type="date" id="end" name="end" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-  </div>
+    <!-- Champ pour la date de fin -->
+    <div>
+      <label for="end" class="block text-sm font-medium text-gray-700">Date fin</label>
+      <input type="date" id="end" name="end" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+    </div>
 
-  <!-- Champ pour la date limite -->
-  <div>
-    <label for="limit" class="block text-sm font-medium text-gray-700">Date limite</label>
-    <input type="date" id="limit" name="limit" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-  </div>
+    <!-- Champ pour la date limite -->
+    <div>
+      <label for="limit" class="block text-sm font-medium text-gray-700">Date limite</label>
+      <input type="date" id="limit" name="limit" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+    </div>
 
-  <div>
-    <label for="lieux" class="block text-sm font-medium text-gray-700">Lieux</label>
-    <input type="text" id="lieux" name="lieux" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-  </div>
+    <div>
+      <label for="lieux" class="block text-sm font-medium text-gray-700">Lieux</label>
+      <input type="text" id="lieux" name="lieux" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+    </div>
 
-  <!-- Bouton de soumission -->
-  <div class="text-right">
-    <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-      Soumettre
-    </button>
-  </div>
+    <!-- Bouton de soumission -->
+    <div class="flex justify-center mt-6">
+      <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+        Soumettre
+      </button>
+    </div>
   </form>
+</div>
 
   <?php
   include 'include/footer.php'; ?>
