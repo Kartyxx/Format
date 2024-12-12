@@ -214,7 +214,8 @@ INSERT INTO `photo` (`id_photo`, `libelle`) VALUES
 
 INSERT INTO `utilisateur` (`id_utilisateur`, `id_entreprise`, `nom`, `prenom`, `email`, `mot_de_passe`, `status`, `localisation`, `codeP`, `ville`, `fonction`) VALUES
 (5, 3, 'courtine', 'Jérome', 'Jcourtine@gmail.com', '$2y$10$KOpeyfHK0ZhaXayOCgkWre9z1amI9.Q9giW9PcHVFbSrfWGvKP/Qe', 'directeur', 'toulouse', '31100', 'toulouse', 'PDG'),
-(6, 1, 'Stéphanie', 'Andres', 'A.Stéphanie@gmail.com', '$2y$10$ELPgWVGgobcy/xMsGFNhMuvEt0PDz5fl4WNQytvSaLODZp5.wpLX.', 'secretaire', 'toulouse', '31100', 'toulouse', 'secraitaire');
+(6, 1, 'Stéphanie', 'Andres', 'A.Stéphanie@gmail.com', '$2y$10$ELPgWVGgobcy/xMsGFNhMuvEt0PDz5fl4WNQytvSaLODZp5.wpLX.', 'secretaire', 'toulouse', '31100', 'toulouse', 'secraitaire'),
+(7, 1, 'segouffin', 'romain', 'romain@gmail.com', '$2y$10$mBJH5FPJ18eqIUrP9lQTOub4ECTMyd1Erj8jhO4H8q44SHs4lXQQ6', 'bénévoles', '128 avenue jules julien', '31400', 'Toulouse', 'cadre');
 
 
 
