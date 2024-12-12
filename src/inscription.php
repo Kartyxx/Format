@@ -19,13 +19,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $code_postal = $_POST['code_postal'];
     $ville = $_POST['ville'];
     $fonction = $_POST['fonction'];
-    $eNomEntreprise = $_POST['NomEntreprise'];
-    $emailEntreprise = $_POST['emailEntreprise'];
-    $tel = $_POST['tel'];
-    $fax = $_POST['fax'];
-    $nomPrenomPdg = $_POST['nomPrenomPdg'];
-    $NumIcom = $_POST['NumIcom'];
-    $idEntrerise = $_POST['idEntrerise'];
 
 
     $utilisateur = new Utilisateur($connexion);
