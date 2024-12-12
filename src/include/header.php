@@ -36,6 +36,13 @@ session_start();
             <a href="historique.php" class="text-white hover:text-blue-300">Historique</a>
             <?php endif; ?>
             <?php endif; ?>
+            <?php 
+            if (isset($_SESSION['status'])):
+            if ($_SESSION['status'] == "directeur"):?>
+            <a href="allinfos.php" class="text-white hover:text-blue-300">Toute Les Infos</a>
+            <?php endif; ?>
+            <?php endif; ?>
+
 
             <?php 
             if (isset($_SESSION['status'])):

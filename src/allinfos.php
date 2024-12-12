@@ -17,10 +17,10 @@ $recuperer = $utilisateur->recuperationUser();
 // Récupération des sessions si un utilisateur est sélectionné
 if (isset($_POST['id_utilisateur'])) {
     $id_utilisateur = $_POST['id_utilisateur'];
-    $stmt = $pdo->prepare("
+    $stmt = $connexion->prepare("
         SELECT u.nom, u.prenom, s.datesD, s.datesF, s.lieux
         FROM utilisateur u
-        JOIN inscriptions i ON u.id_utilisateur = i.id_utilisateur
+        JOIN inscriptions i ON u.id_utilisateur = i.id_participant
         JOIN sessions s ON i.id_sessions = s.id_sessions
         WHERE u.id_utilisateur = :id_utilisateur
     ");
