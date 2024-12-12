@@ -146,8 +146,50 @@ class Utilisateur
 
     }
 
-
-
+    public function updateUtilisateur(
+        $id, 
+        $nom, 
+        $prenom, 
+        $email, 
+        $localisation, 
+        $codeP, 
+        $ville, 
+        $fonction, 
+        $status
+    ) {            // Préparation de la requête SQL
+            $query = "UPDATE utilisateur SET 
+                        nom = :nom, 
+                        prenom = :prenom, 
+                        email = :email, 
+                        localisation = :localisation, 
+                        codeP = :codeP, 
+                        ville = :ville, 
+                        fonction = :fonction, 
+                        status = :status 
+                      WHERE id_utilisateur = :id";
+    
+            $stmt = $this->pdo->prepare($query);
+    
+            // Liaison des paramètres
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->bindParam(':nom', $nom, PDO::PARAM_STR);
+            $stmt->bindParam(':prenom', $prenom, PDO::PARAM_STR);
+            $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+            $stmt->bindParam(':localisation', $localisation, PDO::PARAM_STR);
+            $stmt->bindParam(':codeP', $codeP, PDO::PARAM_STR);
+            $stmt->bindParam(':ville', $ville, PDO::PARAM_STR);
+            $stmt->bindParam(':fonction', $fonction, PDO::PARAM_STR);
+            $stmt->bindParam(':status', $status, PDO::PARAM_STR);
+    
+            // Exécution de la requête
+            if ($stmt->execute()) {
+                echo "Les données ont été mises à jour avec succès.";
+            } else {
+                echo "Une erreur est survenue lors de la mise à jour.";
+            }
+    
+    }
+    
 
 
 }

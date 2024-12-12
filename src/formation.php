@@ -6,6 +6,12 @@ include 'classe/Session.php';
 include 'classe/Intervenant.php';
 
 
+if (!isset($_SESSION['user_id'])) {
+  header("Location: connexion.php");
+  exit();
+}
+
+
 $formation = new Formations($connexion);
 $maFormation = false;
 if ($_SERVER['REQUEST_METHOD'] == 'GET'){

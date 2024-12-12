@@ -1,6 +1,16 @@
 <?php
 include 'include/header.php';
+
+if (!isset($_SESSION['user_id'])) {
+  header("Location: connexion.php");
+  exit();
+}
+
+
 ?>
+
+
+
 
 <div class="min-h-screen bg-gradient-to-r from-blue-300 via-blue-200 to-blue-100 py-16">
 

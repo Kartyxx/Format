@@ -27,7 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $NumIcom = $_POST['NumIcom'];
     $idEntrerise = $_POST['idEntrerise'];
 
-     var_dump($_POST);
 
     $utilisateur = new Utilisateur($connexion);
     $utilisateur->sInscrire($prenom, $nom, $status, $email, $mdp, $adresse, $code_postal, $ville, $fonction, $idEntrerise);

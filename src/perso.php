@@ -3,6 +3,12 @@
 include 'include/header.php';
 include 'include/connexionbdd.php';
 include 'classe/Utilisateur.php';
+
+if (!isset($_SESSION['user_id'])) {
+  header("Location: connexion.php");
+  exit();
+}
+
 ?>
 
 
