@@ -70,8 +70,11 @@ $nom_domaine = $formation->getdomaine($domaine);
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <!-- Partie gauche : Détails de la formation -->
       <div class="bg-gradient-to-r from-blue-50 to-blue-100 shadow-xl rounded-lg p-8">
-        <form action="creerFormation.php" method="post" enctype="multipart/form-data" class="space-y-6 px-8 py-10 max-w-md mx-auto bg-gradient-to-r from-blue-50 to-blue-100 shadow-xl rounded-lg font-sans">
+        <form action="modification.php" method="post" enctype="multipart/form-data" class="space-y-6 px-8 py-10 max-w-md mx-auto bg-gradient-to-r from-blue-50 to-blue-100 shadow-xl rounded-lg font-sans">
           <h2 class="text-2xl font-bold text-center text-blue-700 mb-6">Modifier la Formation</h2>
+
+          <input type="hidden" id="id" name="id" value="<?php echo $id;?>" />
+
 
           <div class="flex flex-col">
             <label for="Titre" class="text-blue-600 text-sm font-semibold mb-1">Titre</label>
