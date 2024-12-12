@@ -15,25 +15,6 @@ $maFormation = $formation->recupFormationPrecise($id);
 }
 $status= $_SESSION['status'];
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-
-  $id = $_POST['id'];
-  $titre = $_POST['Titre'];
-  $description = $_POST['Description'];
-  $domaine = $_POST['domaine'];
-  $cout = $_POST['cout'];
-  $placeMax = $_POST['placeMax'];
-  $public = $_POST['public_concerne'];
-  $lieux = $_POST['lieux'];
-  $objectifs = $_POST['objectifs'];
-  $contenu = $_POST['contenu'];
-
-  $formation->modifierFormation($id, $titre, $description, $domaine, $cout, $placeMax, $lieux, $public, $objectifs, $contenu,);
-
-
-}
-
-
 
 
 if ($maFormation != False) {

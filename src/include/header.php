@@ -46,7 +46,14 @@ session_start();
 
             <a href="perso.php" class="text-white hover:text-blue-300">Mes Informations</a>
             
-            <a href="allinfos.php" class="text-white hover:text-blue-300">Historique</a>
+
+
+            <?php 
+            if (isset($_SESSION['status'])):
+            if ($_SESSION['status'] == "bénévoles" || $_SESSION['status'] == "salariés") :?>
+            <a href="allinfos.php" class="text-white hover:text-blue-300"></a>
+            <?php endif; ?>
+            <?php endif; ?>
             
             <a href="contact.php" class="text-white hover:text-blue-300">Contact</a>
 
