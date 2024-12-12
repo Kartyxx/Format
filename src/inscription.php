@@ -120,50 +120,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         class="px-4 py-2 w-full border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm bg-white shadow-sm" />
     </div>
 
-    <!-- Entreprise Section -->
-    <h2 class="text-xl font-bold text-blue-700 mt-6 mb-4">Entreprise</h2>
-
-    <!-- Nom Entreprise Input -->
-    <div class="flex flex-col">
-      <label for="NomEntreprise" class="text-blue-600 text-sm font-semibold mb-1">Nom Entreprise</label>
-      <input type="text" id="NomEntreprise" name="NomEntreprise" placeholder="Nom Entreprise"
-        class="px-4 py-2 w-full border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm bg-white shadow-sm" />
-    </div>
-
-    <!-- Email Entreprise Input -->
-    <div class="flex flex-col">
-      <label for="emailEntreprise" class="text-blue-600 text-sm font-semibold mb-1">Email de l'entreprise</label>
-      <input type="email" name="emailEntreprise" placeholder="Email de l'entreprise"
-        class="px-4 py-2 w-full border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm bg-white shadow-sm" />
-    </div>
-
-    <!-- Téléphone Input -->
-    <div class="flex flex-col">
-      <label for="tel" class="text-blue-600 text-sm font-semibold mb-1">Téléphone</label>
-      <input type="text" id="tel" name="tel" placeholder="Téléphone"
-        class="px-4 py-2 w-full border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm bg-white shadow-sm" />
-    </div>
-
-    <!-- Fax Input -->
-    <div class="flex flex-col">
-      <label for="fax" class="text-blue-600 text-sm font-semibold mb-1">Fax</label>
-      <input type="text" id="fax" name="fax" placeholder="Fax de l'entreprise"
-        class="px-4 py-2 w-full border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm bg-white shadow-sm" />
-    </div>
-
-    <!-- Nom et Prénom PDG Input -->
-    <div class="flex flex-col">
-      <label for="nomPrenomPdg" class="text-blue-600 text-sm font-semibold mb-1">Nom et Prénom du PDG</label>
-      <input type="text" id="nomPrenomPdg" name="nomPrenomPdg" placeholder="Nom et Prénom du PDG"
-        class="px-4 py-2 w-full border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm bg-white shadow-sm" />
-    </div>
-
-    <!-- Numéro Icom Input -->
-    <div class="flex flex-col">
-      <label for="NumIcom" class="text-blue-600 text-sm font-semibold mb-1">Numéro Icom</label>
-      <input type="text" id="NumIcom" name="NumIcom" placeholder="Numéro Icom"
-        class="px-4 py-2 w-full border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm bg-white shadow-sm" />
-    </div>
+    <!-- Entreprise Section --> 
 
     <button type="submit" class="mt-8 px-4 py-2 w-full bg-blue-600 hover:bg-blue-700 text-sm text-white font-semibold rounded-lg shadow-lg transition duration-200 ease-in-out transform hover:scale-105">
       Soumettre

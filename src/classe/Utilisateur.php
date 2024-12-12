@@ -182,11 +182,6 @@ class Utilisateur
             $stmt->bindParam(':status', $status, PDO::PARAM_STR);
     
             // Exécution de la requête
-            if ($stmt->execute()) {
-                echo "Les données ont été mises à jour avec succès.";
-            } else {
-                echo "Une erreur est survenue lors de la mise à jour.";
-            }
     
     }
     
