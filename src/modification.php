@@ -173,7 +173,7 @@ $nom_domaine = $formation->getdomaine($domaine);
                 </p>
                 <p><strong>Dates :</strong> <?php echo $sess['datesD']; ?> &rarr; <?php echo $sess['datesF']; ?></p>
                 <p><strong>Date limite :</strong> <?php echo $sess['date_limite_inscription']; ?></p>
-                <p> <a href="modifierSessions.php?id_sessionsw²=<?php echo $id_sessions; ?>" class="text-red-600	">Modifier session</a>
+                <p> <a href="modifierSessions.php?id_sessions=<?php echo $id_sessions; ?>" class="text-red-600	">Modifier session</a>
                 </p>
 
               </li>

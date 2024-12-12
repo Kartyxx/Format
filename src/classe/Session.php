@@ -23,7 +23,36 @@ function getSession($id) {
 }
 
 
+function updateSession($dateD, $dateF, $date_limite_inscription, $lieux, $id_sessions ) {
+    $query = "
+UPDATE sessions
+SET datesD =  ?,
+    datesF = ?,
+    date_limite_inscription = ?,
+    lieux = ?
+WHERE id_sessions = ? ";
 
+    $stmt = $this->pdo->prepare($query);
+    $stmt->execute([$dateD, $dateF, $date_limite_inscription, $lieux, $id_sessions]); 
+    $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+}
+
+
+
+
+
+
+function getUniqueSession($id) {
+    $query = "SELECT * FROM sessions WHERE id_sessions = ?";
+
+    $stmt = $this->pdo->prepare($query);
+    $stmt->execute([$id]); 
+    $session = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    return $session;
+
+}
 
 
 function addSession($id_formations, $datesD, $datesF, $date_limite_inscription, $lieux) {

@@ -52,7 +52,7 @@ $lieux = $session['lieux'];
           &larr; Retour à l'accueil
         </a>
       </div>
-      <form action="modificationSession.php" id="formulaire" method="post" enctype="multipart/form-data" class="space-y-6">
+      <form action="modifierSessions.php" id="formulaire" method="post" enctype="multipart/form-data" class="space-y-6">
         <h2 class="text-2xl font-bold text-center text-blue-700 mb-6">Modifier une Session</h2>
 
         <!-- Champ pour la date de début -->
