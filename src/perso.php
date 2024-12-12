@@ -71,7 +71,7 @@ if ($utilisateurs) {
     </table>
     <div class="mt-6 text-center">
       <a href="modificationperso.php" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-lg transition duration-200 ease-in-out transform hover:scale-105">
-        Modifier les informations
+        Modifier mes informations
       </a>
     </div>
 </div>
