@@ -4,6 +4,8 @@ include 'include/connexionbdd.php';
 include 'classe/Utilisateur.php';
 
 
+
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
@@ -25,11 +27,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $NumIcom = $_POST['NumIcom'];
     $idEntrerise = $_POST['idEntrerise'];
 
-    // var_dump($_POST);
-
+     var_dump($_POST);
 
     $utilisateur = new Utilisateur($connexion);
     $utilisateur->sInscrire($prenom, $nom, $status, $email, $mdp, $adresse, $code_postal, $ville, $fonction, $idEntrerise);
+
     
 
     

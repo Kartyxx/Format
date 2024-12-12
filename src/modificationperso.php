@@ -27,7 +27,7 @@ if ($utilisateurs) {
 ?>
 <div class="min-h-screen bg-gradient-to-r from-blue-300 via-blue-200 to-blue-100 py-16">
   
-  <form action="inscription.php" method="post" class="space-y-6 px-8 py-10 max-w-md mx-auto bg-gradient-to-r from-blue-50 to-blue-100 shadow-xl rounded-lg font-sans">
+  <form action="" method="post" class="space-y-6 px-8 py-10 max-w-md mx-auto bg-gradient-to-r from-blue-50 to-blue-100 shadow-xl rounded-lg font-sans">
     <h2 class="text-2xl font-bold text-center text-blue-700 mb-6">Employés</h2>
 <div class="flex flex-col">
       
@@ -95,4 +95,31 @@ if ($utilisateurs) {
       Enregistrer
     </button>
   </form>
+ 
+<?php
 
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $status = $_POST['status'];
+    $lastname = $_POST['text'];
+    $name = $_POST['prenom'];
+    $mail = $_POST['nom'];
+    $adresse = $_POST['adresse'];
+    $code_postal = $_POST['code_postal'];
+    $ville = $_POST['ville'];
+    $fonction = $_POST['fonction'];
+
+    // Exemple de mise à jour dans la base de données
+    $updateUtilisateur = new Utilisateur($connexion);
+    $updateUtilisateur->updateUser($_SESSION['user_id'], [
+        'nom' => $lastname,
+        'prenom' => $name,
+        'email' => $mail,
+        'localisation' => $adresse,
+        'codeP' => $code_postal,
+        'ville' => $ville,
+        'fonction' => $fonction,
+        'status' => $status,
+    ]);
+
+    echo "Les données ont été mises à jour avec succès.";
+}
