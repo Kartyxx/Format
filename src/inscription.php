@@ -19,6 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $code_postal = $_POST['code_postal'];
     $ville = $_POST['ville'];
     $fonction = $_POST['fonction'];
+    $idEntrerise = $_POST['idEntrerise'];
+
 
 
     $utilisateur = new Utilisateur($connexion);
