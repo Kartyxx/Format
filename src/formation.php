@@ -34,12 +34,6 @@ if ($maFormation != False) {
   $lieux = $maFormation['lieu'];
   $objectifs = $maFormation['objectifs'];
   $contenu = $maFormation['contenu'];
-
-
-
-
-
-
   
 }
 

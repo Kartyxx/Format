@@ -14,7 +14,7 @@ class Images
     {
         $this->pdo=$pdo;
     }
-
+    
     public function insererPhoto($libelle)
     {
         $stmt = $this->pdo->prepare("INSERT INTO photo (libelle) VALUES (?)");

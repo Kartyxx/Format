@@ -1,7 +1,7 @@
 <?php 
-include 'include/header.php';
-include 'include/connexionbdd.php';
-include 'classe/Utilisateur.php';
+include 'src/include/header.php';
+include 'src/include/connexionbdd.php';
+include 'src/classe/Utilisateur.php';
 
 $response ="";
 
@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 
 if ($response!=null) {
-    header("Location: index.php");
+    header("Location: src/index.php");
     exit();}
 
 
@@ -71,6 +71,6 @@ else{
 
 
     <?php 
-include 'include/footer.php';
+include 'src/include/footer.php';
 
 ?>

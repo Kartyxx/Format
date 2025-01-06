@@ -45,22 +45,12 @@ CREATE TABLE IF NOT EXISTS `entreprise` (
   PRIMARY KEY (`id_entreprise`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
---
--- Déchargement des données de la table `entreprise`
---
-
 INSERT INTO `entreprise` (`id_entreprise`, `nomEntr`, `courriel`, `tel`, `fax`, `nomPrenomPdg`, `Icom`) VALUES
 (1, 'TechCorp', 'contact@techcorp.com', '0123456789', '0123456790', 'Jean Dupont', 12345678),
 (2, 'InnoSolutions', 'info@innosolutions.com', '0987654321', '0987654322', 'Marie Curie', 87654321),
 (3, 'GreenEnergy', 'hello@greenenergy.com', '0147852369', '0147852370', 'Luc Martin', 11223344),
 (4, 'CreativeDesign', 'support@creativedesign.com', '0158923674', '0158923675', 'Alice Leroy', 22334455),
 (5, 'SmartBuild', 'info@smartbuild.com', '0163587945', '0163587946', 'Philippe Rousseau', 33445566);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `formations`
---
 
 DROP TABLE IF EXISTS `formations`;
 CREATE TABLE IF NOT EXISTS `formations` (
@@ -78,7 +68,6 @@ CREATE TABLE IF NOT EXISTS `formations` (
   PRIMARY KEY (`id_formation`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
-
 DROP TABLE IF EXISTS `inscriptions`;
 CREATE TABLE IF NOT EXISTS `inscriptions` (
   `id_inscription` int NOT NULL AUTO_INCREMENT,
@@ -90,12 +79,6 @@ CREATE TABLE IF NOT EXISTS `inscriptions` (
   KEY `id_participant` (`id_participant`),
   KEY `id_sessions` (`id_sessions`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `utilisateur`
---
 
 DROP TABLE IF EXISTS `utilisateur`;
 CREATE TABLE IF NOT EXISTS `utilisateur` (
@@ -114,7 +97,6 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   KEY `entreprise_fk_1` (`id_entreprise`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 ;
 
-
 DROP TABLE IF EXISTS `sessions`;
 CREATE TABLE IF NOT EXISTS `sessions` (
   `id_sessions` int NOT NULL AUTO_INCREMENT,
@@ -127,8 +109,6 @@ CREATE TABLE IF NOT EXISTS `sessions` (
   KEY `sessions_fk_1` (`id_formations`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
-
-
 DROP TABLE IF EXISTS `interviens`;
 CREATE TABLE IF NOT EXISTS `interviens` (
   `id_interviens` int NOT NULL AUTO_INCREMENT,
@@ -136,8 +116,6 @@ CREATE TABLE IF NOT EXISTS `interviens` (
   `id_sessions` int NOT NULL,
   PRIMARY KEY (`id_interviens`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
-
-
 
 DROP TABLE IF EXISTS `intervenants`;
 CREATE TABLE IF NOT EXISTS `intervenants` (
@@ -154,12 +132,33 @@ CREATE TABLE IF NOT EXISTS `domaine` (
   PRIMARY KEY (`id_domaine`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
+DROP TABLE IF EXISTS `photo`;
+CREATE TABLE IF NOT EXISTS `photo` (
+  `id_photo` int NOT NULL AUTO_INCREMENT,
+  `libelle` VARCHAR(50) NOT NULL,
+  PRIMARY KEY (`id_photo`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO `photo` (`id_photo`, `libelle`) VALUES
+(5, 'formation.png'),
+(6, 'secourisme.png'),
+(7, 'communication.png'),
+(8, 'gestion.png');
+
+
+INSERT INTO `formations` (`id_formation`, `titre`, `description`, `id_domaine`, `cout`, `nombre_max_participants`, `lieu`, `public_concerne`, `objectifs`, `contenu`, `id_photo`) VALUES
+(6, 'IA', 'Apprendre les bases de l\'IA', 2, 500.00, 10, 'Toulouse', 'Tout le monde', 'Etre capable d\'utiliser une IA', 'Instructif', 5),
+(7, 'Secourisme', 'Apprendre les geste de premiers secours', 4, 275.00, 10, 'Toulouse', 'Tout le monde', 'Etre capable de donner les premiers soins', 'Instructif', 6),
+(8, 'Communication', 'Faire une communication impactante', 5, 300.00, 10, 'Toulouse', 'Tout le monde', 'Etre capable de réaliser une communication qui marque l\'utilisateur', 'Instructif', 7),
+(9, 'Gestion', 'Apprendre à améliorer sa gestion', 1, 150.00, 10, 'Toulouse', 'Tout le monde', 'Etre capable d\'avoir une gestion précise et efficace', 'Instructif', 8);
+
 INSERT INTO domaine (id_domaine, libelle) VALUES 
 (1,'Gestion'), 
 (2,'Informatique'), 
 (3,'Développement durable'), 
 (4,'Secourisme'), 
 (5,'Communication');
+
 
 INSERT INTO intervenants (nom, id_domaine) VALUES
 ('Alice Dupont', '1'),
@@ -176,31 +175,38 @@ INSERT INTO intervenants (nom, id_domaine) VALUES
 ('Antoine Lambert', '5');
 
 
-DROP TABLE IF EXISTS `photo`;
-CREATE TABLE IF NOT EXISTS `photo` (
-  `id_photo` int NOT NULL AUTO_INCREMENT,
-  `libelle` VARCHAR(50) NOT NULL,
-  PRIMARY KEY (`id_photo`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
-
-
-
 INSERT INTO `utilisateur` (`id_utilisateur`, `id_entreprise`, `nom`, `prenom`, `email`, `mot_de_passe`, `status`, `localisation`, `codeP`, `ville`, `fonction`) VALUES
 (5, 3, 'courtine', 'Jérome', 'Jcourtine@gmail.com', '$2y$10$KOpeyfHK0ZhaXayOCgkWre9z1amI9.Q9giW9PcHVFbSrfWGvKP/Qe', 'directeur', 'toulouse', '31100', 'toulouse', 'PDG'),
-(6, 1, 'Stéphanie', 'Andres', 'A.Stéphanie@gmail.com', '$2y$10$ELPgWVGgobcy/xMsGFNhMuvEt0PDz5fl4WNQytvSaLODZp5.wpLX.', 'secretaire', 'toulouse', '31100', 'toulouse', 'secraitaire');
+(6, 1, 'Stéphanie', 'Andres', 'A.Stéphanie@gmail.com', '$2y$10$ELPgWVGgobcy/xMsGFNhMuvEt0PDz5fl4WNQytvSaLODZp5.wpLX.', 'secretaire', 'toulouse', '31100', 'toulouse', 'secraitaire'),
+(7, 1, 'segouffin', 'romain', 'romain@gmail.com', '$2y$10$mBJH5FPJ18eqIUrP9lQTOub4ECTMyd1Erj8jhO4H8q44SHs4lXQQ6', 'bénévoles', '128 avenue jules julien', '31400', 'Toulouse', 'cadre');
 
---
--- Contraintes pour la table `inscriptions`
---
+
+INSERT INTO `sessions` (`id_sessions`, `id_formations`, `datesD`, `datesF`, `date_limite_inscription`, `lieux`) VALUES
+(5, 6, '2024-12-14 00:00:00', '2024-12-15 00:00:00', '2024-12-13', 'Toulouse'),
+(6, 6, '2024-12-14 00:00:00', '2024-12-15 00:00:00', '2024-12-13', 'Toulouse'),
+(7, 7, '2024-12-14 00:00:00', '2024-12-15 00:00:00', '2024-12-13', 'Toulouse'),
+(8, 8, '2024-12-14 00:00:00', '2024-12-15 00:00:00', '2024-12-13', 'Toulouse'),
+(9, 9, '2024-12-14 00:00:00', '2024-12-15 00:00:00', '2024-12-13', 'Toulouse');
+
+
+INSERT INTO `interviens` (`id_interviens`, `id_intervenants`, `id_sessions`) VALUES
+(5, 6, 5),
+(6, 7, 5),
+(7, 8, 6),
+(8, 9, 6),
+(9, 11, 7),
+(10, 15, 8),
+(11, 5, 9);
+
+
 ALTER TABLE `inscriptions`
   ADD CONSTRAINT `inscriptions_fk_1` FOREIGN KEY (`id_participant`) REFERENCES `utilisateur` (`id_utilisateur`),
   ADD CONSTRAINT `inscriptions_fk_2` FOREIGN KEY (`id_sessions`) REFERENCES `sessions` (`id_sessions`);
 
 ALTER TABLE `sessions`
   ADD CONSTRAINT `sessions_fk_1` FOREIGN KEY (`id_formations`) REFERENCES `formations` (`id_formation`);
-  --
--- Contraintes pour la table `utilisateur`
---
+
+
 ALTER TABLE `utilisateur`
   ADD CONSTRAINT `entreprise_fk_1` FOREIGN KEY (`id_entreprise`) REFERENCES `entreprise` (`id_entreprise`);
 

@@ -12,6 +12,7 @@ if (!isset($_SESSION['user_id'])) {
 
 $formations = new Formations($connexion);
 
+
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
   if (isset($_GET["id"])) {
     $id = $_GET["id"];
@@ -19,7 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
   }
 }
 
+
 $tableFormat = $formations->getFormations();
+
 
 $utilisateur = new Utilisateur($connexion);
 $status = $utilisateur->getStatus($_SESSION['user_id']);
