@@ -1,8 +1,8 @@
 <?php
 	$hote= "localhost";
-	$login= "u552426471_gabin"; 
-	$mdp = "Anime2510*"; 
-	$nombd="u552426471_test	";
+	$login= "root"; 
+	$mdp = ""; 
+	$nombd="format	";
 	
 	try { 
 		$connexion = new PDO("mysql:host=$hote;dbname=$nombd", $login, $mdp); 
